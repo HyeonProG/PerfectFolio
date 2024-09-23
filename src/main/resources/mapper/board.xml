@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tenco.perfectfolio.repository.interfaces.BoardRepository">
+
+	<insert id="insert">
+		INSERT INTO
+		question_tb(categories,title,user_id,writer,content,created_at) VALUES (
+		#{categories},#{title},#{userId},#{writer},#{content},#{createdAt})
+	</insert>
+
+	<update id="update">
+		UPDATE question_tb SET categories = #{categories} , title = #{title} ,
+		content = #{content} WHERE id = #{id}
+	</update>
+
+	<select id="readAllBoardList"
+		resultType="com.tenco.perfectfolio.repository.model.Board">
+		SELECT * FROM question_tb ORDER BY id DESC limit #{size} offset #{offset}
+	</select>
+
+	<select id="viewBoardById">
+		SELECT * FROM question_tb WHERE id = #{boardId}
+	</select>
+
+	<select id="checkSameUser">select count(*)
+		from user_tb as u
+		join question_tb as q
+		on u.id = q.user_id
+		where q.user_id = #{id}</select>
+
+	<insert id="insertDeleteBoard">
+		INSERT INTO
+		deleted_question_tb(id,categories,title,user_id,writer,content,created_at)
+		VALUES ( #{id},
+		#{categories},#{title},#{userId},#{writer},#{content},#{createdAt})
+	</insert>
+	<delete id="deleteBoard">
+		DELETE FROM question_tb where id = #{boardId}
+	</delete>
+
+	<update id="increaseViews">
+		UPDATE question_tb
+		SET views = #{views}
+		WHERE id = #{boardId}
+	</update>
+	
+	<select id="searchCategoryAndTitle" resultType="com.tenco.perfectfolio.repository.model.Board">
+		select * from question_tb where categories = #{categories} and title like CONCAT('%',#{searchContents},'%') ORDER BY id DESC limit #{size} offset #{offset}
+	</select>
+	<select id="searchCategoryAndTitleAndContent">
+		select * from question_tb where categories = #{categories} and title like CONCAT('%',#{searchContents},'%') and content like CONCAT('%',#{searchContents},'%') ORDER BY id DESC limit #{size} offset #{offset}
+	</select>
+	<select id="searchOnlyTitle">
+		select * from question_tb where title like CONCAT('%',#{searchContents},'%') ORDER BY id DESC limit #{size} offset #{offset}
+	</select>
+	<select id="searchOnlyTitleAndContent">
+		select * from question_tb where title like CONCAT('%',#{searchContents},'%') and content like CONCAT('%',#{searchContents},'%') ORDER BY id DESC limit #{size} offset #{offset}
+	</select>
+	
+	<select id="getBoardCounts">
+		SELECT count(*) AS count FROM question_tb
+	</select>
+
+
+	<select id="countsCategoryAndTitle">
+		select count(*) from question_tb where categories = #{categories} and title like CONCAT('%',#{searchContents},'%')
+	</select>
+	<select id="countsCategoryAndTitleAndContent">
+		select count(*) from question_tb where categories = #{categories} and title like CONCAT('%',#{searchContents},'%') and content like CONCAT('%',#{searchContents},'%')
+	</select>
+	<select id="countsOnlyCategory">
+		select count(*) from question_tb where categories = #{categories}
+	</select>
+	<select id="countsOnlyTitle">
+		select count(*) from question_tb where title like CONCAT('%',#{searchContents},'%')
+	</select>
+	<select id="countsOnlyTitleAndContent">
+		select count(*) from question_tb where title like CONCAT('%',#{searchContents},'%') and content like CONCAT('%',#{searchContents},'%')
+	</select>
+
+
+</mapper>

@@ -1,0 +1,293 @@
+/* font */
+/* Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+	blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn,
+	em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,
+	b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas,
+	details, embed, figure, figcaption, footer, header, hgroup, menu, nav,
+	output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup,
+	menu, nav, section, input {
+	display: block;
+}
+
+body {
+	line-height: 24px;
+	font-family: "Poppins", sans-serif;
+ 	font-weight: 300;
+  	font-style: normal;
+  	font-size: 16px;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+a {
+	display: block;
+}
+
+/* html, body */
+html {
+	scroll-behavior: smooth;
+}
+
+.service--utils {
+	width: 50px;
+	position: fixed;
+	right: 30px;
+	bottom: 50px;
+	z-index: 999;
+}
+
+.top--btn {
+	display: block;
+	background-color: #d2a2dc;
+	padding: 0.2rem;
+	margin-bottom: 0.4rem;
+}
+
+.chat--bot {
+	display: block;
+	background-color: #d2a2dc;
+	padding: 0.2rem;
+}
+
+/* header */
+.h--fixed {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 99;
+	width: 100%;
+	height: 54px;
+	box-sizing: border-box;
+}
+
+.h--fixed:hover {
+	background-color: black;
+	transition: all .5s;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	max-width: 1220px;
+	margin: 0 auto;
+	box-sizing: border-box;
+}
+
+.main--logo a {
+	width: 50px;
+	height: 50px;
+	margin-left: 15px;
+}
+
+.main--logo a img {
+	width: 100%;
+}
+
+.gnb--wrap {
+	padding-top: 3px;
+}
+
+.gnb {
+	display: flex;
+}
+
+.gnb--link {
+	padding: 0.8rem;
+	font-weight: bold;
+	color: #fff;
+}
+
+.gnb--link:hover {
+	text-decoration: none;
+}
+
+.utils--wrap {
+	padding-top: 1rem;
+	height: 100%;
+}
+
+.utils {
+	display: flex;
+}
+
+.util--item {
+	position: relative;
+}
+
+.util--link {
+	padding-left: 2rem;
+}
+
+.sub--menu {
+	width: 110%;
+	background-color: black;
+	border-radius: 7px;
+	text-align: center;
+	margin-top: 0.2rem;
+}
+
+.util--link {
+	color: #fff;
+	width: 100%;
+}
+
+.util--sub {
+	position: absolute;
+	top: 40px;
+	left: 10px;
+	z-index: 99;
+	width: 100px;
+	text-align: center;
+	transform: translateX(-20px);
+	background-color: black;
+	border-radius: 7px;
+}
+
+.sub--link {
+	padding: 0.5rem;
+	color: #fff;
+}
+
+.sub--link:hover {
+	text-decoration: none;
+	color: #d2a2dc;
+}
+
+/* side nav */
+.side--nav{
+	background-color: #eee;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100vw;
+    height: 100vh;
+    margin-left: 100vw;
+    transition: all 0.5s;
+}
+.show-sidebar{
+    margin-left: 0vw;
+}
+ .collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+.active,
+.collapsible:hover {
+background-color: #555;
+}
+
+.content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f1f1f1;
+}
+.collapsible:after {
+    content: '\002B';
+    color: white;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+.active:after {
+    content: "\2212";
+}
+
+/* title */
+.title--heading{
+    color: #fff;
+}
+.title--heading h1{
+ 	font-family: "Montserrat", sans-serif;
+  	font-optical-sizing: auto;
+  	font-weight: 800;
+  	font-style: normal;
+  	font-size: 48px;
+  	margin-bottom: 0.8rem;
+  	letter-spacing : 0.1rem;
+}
+.title--heading h3{
+	color: #7478f6;
+	font-size: 22px;
+	margin-bottom: 1.3rem;
+}
+
+/* footer */
+ .footer {
+	width: 100%;
+	/* background-color: #161616; */
+	margin-top: 7rem;
+	padding: 3rem 0;
+	color: #eee;
+	text-align: center;
+	border-top: 1px solid #eee;
+}
+.inner--footer{
+	width: 400px;
+	margin: 0 auto;
+	text-align: center;
+}
+.inner--footer p{
+	opacity: .5;
+	margin: 0;
+}
+.f--logo{
+	font-family: "Montserrat", sans-serif;
+  	font-optical-sizing: auto;
+  	font-weight: 800;
+  	font-style: normal;
+  	font-size: 48px;
+  	letter-spacing : 0.1rem;
+  	padding-bottom: 1rem;
+}
+.f--info{
+	display: flex;
+	justify-content: center;
+}
+.f--contact{
+	margin: 0 0.5rem;
+}

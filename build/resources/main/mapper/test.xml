@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+        namespace="com.tenco.perfectfolio.repository.interfaces.tempRepo">
+
+    <!-- 반드시 세미콜론을 제거 해야 한다. -->
+
+    <select id="findAll" resultType="com.tenco.perfectfolio.repository.model.tempModel">
+        select * from testCon
+    </select>
+
+
+</mapper>

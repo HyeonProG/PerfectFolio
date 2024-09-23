@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="com.tenco.perfectfolio.repository.interfaces.PaymentRepository">
+
+	<insert id="insert">
+		INSERT INTO
+		payment_tb(user_id,last_transaction_key,payment_key,order_id,order_name,billing_key,customer_key,amount,total_amount,requested_at,approved_at,cancel)
+		VALUES(
+		#{userId},#{lastTransactionKey},#{paymentKey},#{orderId},#{orderName},#{billingKey},#{customerKey},#{amount},#{totalAmount},#{requestedAt},#{approvedAt},#{cancel}
+		)
+	</insert>
+
+	<insert id="insertOrder">
+		INSERT INTO
+		order_tb(user_id,customer_key,billing_key,amount,order_id,order_name,billing_error_code,pay_error_code)
+		VALUES(
+		#{userId},#{customerKey},#{billingKey},#{amount},#{orderId},#{orderName},#{billingErrorCode},#{payErrorCode}
+		)
+	</insert>
+
+	<insert id="insertRefund">
+		INSERT INTO
+		refund_tb(last_transaction_key,payment_key,cancel_reason,requested_at,approved_at,cancel_amount,admin_id)
+		VALUES(
+		#{lastTransactionKey},#{paymentKey},#{cancelReason},#{requestedAt},#{approvedAt},#{cancelAmount},#{adminId})
+	</insert>
+
+	<insert id="insertSubscribing">
+		INSERT INTO
+		subscribing_tb(subscribing,order_name,billing_key,customer_key,amount,user_id,next_pay)
+		VALUES(#{subscribing},#{orderName},#{billingKey},#{customerKey},#{amount},#{userId},#{nextPay})
+	</insert>
+
+	<insert id="insertTerminReason">
+		INSERT INTO
+		termin_reason_tb(reason,user_id)
+		VALUES(#{cancelReason},#{userPk})
+	</insert>
+
+	<update id="update">
+		UPDATE payment_tb
+		SET cancel = "Y"
+		WHERE id = #{payPk};
+	</update>
+
+	<update id="updateSubscribing">
+		UPDATE subscribing_tb
+		SET created_at = #{toDay}
+		WHERE next_pay = #{nextDate}
+	</update>
+
+	<update id="updateStopSubscribe">
+		UPDATE subscribing_tb
+		SET subscribing = "N"
+		WHERE user_id = #{userPk}
+	</update>
+
+	<select id="selectAllCustomers">
+		select * from subscribing_tb WHERE subscribing = 'Y'
+	</select>
+
+	<select id="checkUserPayInfo">
+		SELECT * FROM subscribing_tb WHERE user_id = #{userPk} AND subscribing = 'Y'
+	</select>
+
+	<select id="getAllPayList">
+		SELECT * FROM payment_tb ORDER BY id DESC limit #{size} offset #{offset}
+	</select>
+
+	<select id="getPayUserInfo">
+		SELECT *
+		FROM payment_tb as p
+		JOIN user_tb as u
+		ON p.user_id = u.id
+		WHERE p.user_id = #{userId}
+	</select>
+
+	<select id="checkDuplication">
+		SELECT count(*) FROM subscribing_tb WHERE user_id = #{userPk} AND subscribing = 'Y'
+	</select>
+
+	<select id="getPayListCounts">
+		SELECT count(*) FROM payment_tb
+	</select>
+
+	<select id="getAllRefundList">
+		SELECT * FROM refund_tb ORDER BY id DESC limit #{size} offset #{offset}
+	</select>
+
+	<select id="getRefundListCounts">
+		SELECT count(*) FROM refund_tb
+	</select>
+
+	<select id="getPayListsWithContents">
+		SELECT * FROM payment_tb WHERE order_id = #{searchContents} ORDER BY id
+		DESC limit #{size} offset #{offset};
+	</select>
+
+	<select id="getPayCountsWithContents">
+		SELECT count(*) FROM payment_tb WHERE order_id = #{searchContents}
+	</select>
+
+
+	<select id="searchAllRefundList">
+		SELECT * FROM refund_tb WHERE cancel_reason = #{searchRange} AND
+		payment_key = #{searchContents} ORDER BY id DESC limit #{size} offset
+		#{offset};
+	</select>
+
+	<select id="searchRefundListOnlyRange">
+		SELECT * FROM refund_tb WHERE cancel_reason = #{searchRange} ORDER BY id
+		DESC limit #{size} offset #{offset}
+	</select>
+
+	<select id="getAllRefundCounts">
+		SELECT count(*) FROM refund_tb WHERE cancel_reason = #{searchRange} AND
+		payment_key = #{searchContents}
+	</select>
+		
+	<select id="getRefundCountsWithContents">
+		SELECT count(*) FROM refund_tb WHERE payment_key = #{searchContents}
+	</select>
+	
+	<select id="countSubscribing" resultType="Integer">
+		SELECT COUNT(*) AS count FROM subscribing_tb WHERE subscribing = 'Y'
+	</select>
+	
+	
+</mapper>

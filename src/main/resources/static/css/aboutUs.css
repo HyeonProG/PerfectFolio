@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+/* sub banner */
+.sub--banner{
+	background: url("/images/sub/subBanner.png") no-repeat top;
+	height: 370px;
+}
+.sub--banner h1{
+	font-family: "Montserrat", sans-serif;
+  	font-optical-sizing: auto;
+  	font-weight: 800;
+  	font-style: italic;
+  	text-align: center;
+	color: #fff;
+	padding-top: 10rem;
+	letter-spacing: 10px;
+}
+
+/* 공통 */
+.about--wrap{
+	color: #fff;
+}
+.about--section{
+	padding: 6rem 0;
+}
+.inner--about{
+	width: 70%;
+	margin: 0 auto;
+}
+
+/* 제목 영역 */
+.about--text{
+	width: 460px;
+}
+
+/* 첫 번째 섹션 */
+.who i{
+	color: #0071E3;
+}
+
+/* 두 번째 섹션 */
+.aim{
+	background-color: #8A799A;
+}
+
+.aim--items{
+	text-align: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	padding-top: 1rem;
+}
+.aim--items li{
+	width: 245px;
+}
+.aim--items li div{
+	width: 230px;
+	height: 230px;
+	background-color: #eee;
+	border-radius: 50%; 
+}
+.aim--items li p{
+	margin: 0;
+	padding-top: 0.5rem; 
+}
+
+/* 세 번째 섹션 */
+.journey table{
+	padding-top: 2rem;
+}
+.journey tr{
+	height: 80px;
+}
+.journey td{
+	padding-left: 2rem;
+}

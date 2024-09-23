@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tenco.perfectfolio.repository.interfaces.analystic.JobNoticeRepository">
+
+
+
+
+
+	<select id="findById" resultType="com.tenco.perfectfolio.repository.model.analystic.JobNotice">
+		SELECT * FROM job_notice WHERE id = #{id}
+	</select>
+
+	<select id="findRecommendCompanies" resultType="com.tenco.perfectfolio.repository.model.RecommendCompanies">
+		SELECT
+			r.user_id,
+			r.similarity,
+			r.recommended_date,
+			c.title,
+			c.job_url,
+			c.company_name,
+			c.experience,
+			c.end_date,
+			c.site
+		FROM recommended_companies AS r
+				 LEFT JOIN (
+			SELECT
+				id,
+				notice_id,
+				REPLACE(JSON_EXTRACT(json, '$.title'), '"', '') AS title,
+				REPLACE(JSON_EXTRACT(json, '$.job_url'), '"', '') AS job_url,
+				REPLACE(JSON_EXTRACT(json, '$.company_name'), '"', '') AS company_name,
+				REPLACE(JSON_EXTRACT(json, '$.experience'), '"', '') AS experience,
+				REPLACE(JSON_EXTRACT(json, '$.end_date'), '"', '') AS end_date,
+				REPLACE(JSON_EXTRACT(json, '$.site'), '"', '') AS site
+			FROM crawl_notice_json
+		) AS c
+						   ON r.board_id = c.notice_id
+
+				 LEFT JOIN user_tb AS u
+						   ON r.user_id = u.id
+
+		WHERE r.user_id = #{id}
+		<if test="similarityOption == 'six'">
+			AND r.similarity >= 0.6
+		</if>
+		<if test="similarityOption == 'seven'">
+			AND r.similarity >= 0.7
+		</if>
+		<if test="similarityOption == 'eight'">
+			AND r.similarity >= 0.8
+		</if>
+		<if test="similarityOption == 'nine'">
+			AND r.similarity >= 0.9
+		</if>
+		<if test="similarityOption == 'all'">
+			AND r.similarity >= 0.0
+		</if>
+		<if test="dateOption == null or dateOption == 'today'">
+			AND r.recommended_date = CURDATE() <!-- 기본값: 오늘 날짜 -->
+		</if>
+		<if test="dateOption == 'yesterday'">
+			AND r.recommended_date = DATE_SUB(CURDATE(), INTERVAL 1 DAY)
+		</if>
+		<if test="dateOption == 'oneWeek'">
+			AND r.recommended_date BETWEEN DATE_SUB(CURDATE(), INTERVAL 7 DAY) AND CURDATE()
+		</if>
+		<if test="qualificationOption == null or qualificationOption == ''">
+			ORDER BY similarity DESC <!-- 기본값: 오름차순 -->
+		</if>
+		<if test="qualificationOption == 'downArray'">
+			ORDER BY similarity DESC
+		</if>
+		<if test="qualificationOption == 'upArray'">
+			ORDER BY similarity ASC
+		</if>
+		LIMIT #{limit}
+	</select>
+
+	<insert id="insertJobSimilarity">
+		INSERT INTO recommended_companies (board_id, user_id, similarity, recommended_date)
+		VALUES
+		<foreach collection="list" item="jobSimilarityModelList" separator=",">
+			<foreach collection="jobSimilarityModelList" item="jobSimilarity" separator=",">
+				(#{jobSimilarity.boardId}, #{jobSimilarity.userId}, #{jobSimilarity.similarityScore}, NOW())
+			</foreach>
+		</foreach>
+	</insert>
+
+</mapper>

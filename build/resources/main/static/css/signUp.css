@@ -1,0 +1,184 @@
+@charset "UTF-8";
+/* 회원가입과 관련된 css 파일 */
+.body--bg{
+    background-color: #fff;
+}
+
+/* 회원유형 선택하는 화면 */
+.container{
+	padding-top: 64px;
+}
+.option--wrap{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.option--item{
+	width: 200px;
+	height: 300px;
+	border: 1px solid #eee;
+	border-radius: 8px;
+	text-align: center;
+	margin: 0 1rem;
+}
+.option--item:hover{
+	transform: translateY(-5px);
+	transition: all .6s;
+}
+.option--item a{
+	width: 200px;
+	height: 40px;
+	color: #fff;
+	border-radius: 2px;
+	background-color: #BC91E6;
+	padding: 0.5rem 0;
+	margin-top: 40px;
+}
+.option--item a:hover{
+	text-decoration: none;
+	color: #BC91E6;
+	border: 1px solid #BC91E6;
+	background-color: #fff;
+}
+.option--item i {
+	padding-left: 0.5rem;
+}
+.option--enterprise a{
+	background-color: #fff;
+	border: 1px solid #BC91E6;
+	color: #BC91E6;
+}
+.option--enterprise a:hover{
+	border: 1px solid #fff;
+	background-color: #BC91E6;
+	color: #fff;
+}
+
+.notice--login{
+	margin-top: 2rem;
+	display: flex;
+	justify-content: center;
+}
+.notice--login p{
+	margin: 0 5px 0 0;
+}
+.notice--info{
+	text-align: center;
+	margin-top: 1rem;
+	font-size: 14px;	
+}
+
+/* 회원가입 화면 */
+.signup--wrap{
+	max-width: 710px;
+	margin: 0 auto;
+	padding: 2rem;
+	box-sizing: border-box;
+}
+
+.sign--title{
+	 text-align: center;
+}
+
+.check--btn{
+	width: 70px;
+	height:38px;
+	border: none;
+	border-radius: 20px;
+	padding: 0.5rem 0;
+	background-color: #BC91E6;
+	color: #fff;
+}
+
+.pw--info{
+	color: #B9B9B9;
+	font-size: 14px;
+}
+
+.gender--wrap{
+	margin-bottom: 1rem;
+}
+.gender--wrap p{
+	margin: 0;
+}
+
+.maintain--check{
+	display: flex;
+	max-width: 470px;
+	margin: 0 auto;
+	margin-bottom: 1rem;
+}
+
+.maintain--check label{
+	margin: 0;
+	padding-left: 8px;
+	font-size: 12px;
+}
+
+.maintain--check a{
+	display: inline-block;
+}
+
+.sign--btn {
+	width: 100%;
+	border: none;
+	border-radius: 10px;
+	padding: 0.5rem 0;
+	background-color: #9E61C1;
+	color: #fff;
+	margin-bottom: 1rem;
+}
+
+/* social */
+.social--wrap {
+	text-align: center;
+	color: #707070;
+}
+
+.social--wrap p::before{
+	content: "";
+    display: inline-block;
+    width: 30%;
+    height: 1px;
+    margin-right: 5px;
+    background-color: #B9B9B9;
+    vertical-align: middle;
+}
+
+.social--wrap p::after{
+	content: "";
+    display: inline-block;
+     width: 30%;
+    height: 1px;
+    margin-left: 5px;
+    background-color: #B9B9B9;
+    vertical-align: middle;
+}
+
+.social--btn--wrap{
+	max-width: 130px;
+	margin: 0 auto;
+}
+
+.social--wrap a{
+	display: inline-block;
+}
+
+.social--btn {
+	max-width: 130px;
+	margin-bottom: 0.2rem;
+}
+
+.validate--btn {
+	width: 60px;
+	height:38px;
+	border: none;
+	border-radius: 20px;
+	padding: 0.5rem 0;
+	background-color: #BC91E6;
+	color: #fff;
+}
+
+.essential {
+	right: 0;
+}

@@ -1,0 +1,341 @@
+@charset "UTF-8";
+
+/* banner */
+.main--banner {
+    height: 600px;
+    background: url("../images/main/mainBanner.png") no-repeat center center;
+    background-size: cover;
+    overflow: hidden;
+    display: flex;
+    justify-content: center; /* 내부 요소들을 수평 중앙 정렬 */
+    align-items: flex-end; /* 내부 요소들을 하단 정렬 */
+}
+
+.banner--text {
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    padding-top: 5rem; /* 텍스트 상단 여백 조정 */
+    max-width: 1000px; /* 텍스트 컨테이너의 최대 너비 설정 */
+    margin: 0 auto; /* 중앙 정렬 */
+}
+
+.banner--text h1 {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+}
+
+/* .job--data의 중앙 정렬 설정 */
+.job--data {
+    list-style: none;
+    padding-top: 40px;
+    margin: 0; /* 상하 여백 제거 */
+    max-width: 1000px;
+    display: flex;
+    justify-content: space-around;
+    color: #fff;
+}
+
+.job--data li {
+    text-align: center;
+    font-size: 1.4rem; /* 텍스트 크기 조정 */
+    margin: 0 10px;
+}
+
+.counter-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 120px; /* 너비 설정 */
+    height: 80px; /* 높이 설정 */
+}
+
+.counter, .counter-back {
+    font-size: 2rem; /* 기본 숫자 크기 */
+    font-weight: bold;
+    position: absolute;
+    top: 50%; /* 중앙 정렬 */
+    left: 50%;
+    transform: translate(-50%, -50%); /* 숫자 중앙 배치 */
+    transition: transform 0.3s ease; /* 크기 변화 애니메이션 */
+}
+
+.counter {
+    color: #fff; /* 앞쪽 숫자는 흰색 */
+}
+
+.counter-back {
+    color: #444; /* 뒤쪽 숫자는 진한 회색 */
+    top: 55%;  /* 약간 아래로 이동해서 중첩된 느낌 */
+    left: 55%; /* 약간 오른쪽으로 이동해서 중첩된 느낌 */
+    pointer-events: none; /* 클릭 불가 */
+}
+
+.grow {
+    transform: translate(-50%, -50%) scale(1.1); /* 숫자가 조금 커짐 */
+}
+
+.container {
+    max-width: 1320px;
+}
+
+/* introduce */
+.more--btn {
+    display: inline-block;
+    width: 200px;
+    height: 53px;
+    border-radius: 30px;
+    text-align: center;
+    color: #fff;
+    padding-top: 0.8rem;
+    border: 1px solid #7478f6;
+    margin-top: 0.5rem;
+}
+
+.more--btn:hover {
+    text-decoration: none;
+    background-color: #0071e300;
+    transition: all .2s;
+    color: #fff;
+    background-color: #7478f6;
+}
+
+/* 나머지 스타일은 동일하게 유지 */
+
+
+.introduce{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.introduce--content{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.section--area{
+    margin-top: 6.25rem;
+}
+
+.demo-ul1{
+    padding-top: 3rem;
+    margin: 0;
+}
+.demo-ul2{
+    margin: 0;
+}
+.demo1{
+    width: 265px;
+    height: 200px;
+    margin-left: 7.2rem;
+}
+.demo2{
+    width: 380px;
+    height: 240px;
+    margin: 0.5rem 0.5rem 0 0;
+}
+.demo3{
+    width: 214px;
+    height: 330px;
+    margin-bottom: 0.5rem;
+}
+.demo4{
+    width: 214px;
+    height: 230px;
+}
+
+/* secret */
+.trade--secret{
+	color: #fff;
+}
+.secret--items{
+    display: flex;
+    padding-top: 2rem;
+    /*text-align: center;*/
+}
+.secret--items li{
+    width: 25%;
+    height: 273px;
+   /*  background-color: beige; */
+}
+.secret--items figure{
+	width: 96px;
+    /*margin: 0 auto;*/
+}
+.secret--items img{
+	width: 100%;
+}
+
+/* 매칭 단계 */
+.inner-step{
+    color: #fff;
+    margin-top: 2rem;
+}
+.step--item{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 2rem;
+}
+.step--badge{
+    display: block;
+    border: 1px solid #fff;
+    border-radius: 30px;
+    width: 120px;
+    height: 25px;
+    text-align: center;
+}
+.step--text{
+    padding: 1rem 0;
+    margin: 0;
+}
+.step--img{
+    width: 460px;
+    height: 300px;
+   /*  background-color: rgb(166, 139, 192); */
+   	border: 1px solid #fff;
+    border-radius: 20px;
+}
+.step--img img{
+	width: 100%;
+}
+
+/* 데이터 수집 사이트 */
+.text--center{
+    text-align: center;
+}
+#slider {
+    overflow:hidden;
+    width:100%;
+    height: 62px;
+     margin-top: 5rem;
+ }
+.image-box {
+    /* width:5280px; */
+    width: 3200px;
+    height:100%;
+    display:flex;
+    flex-wrap:nowrap;
+    animation: bannermove 15s linear infinite;
+ }
+ .image-box div{
+    margin: 0 2.5rem;
+ }
+@keyframes bannermove {
+   0% {
+       transform: translate(0, 0);
+   }
+   100% {
+       transform: translate(-50%, 0);
+   }
+ }
+
+/*구독제후기*/
+html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+/*공지사항*/
+.notice--board{
+    color: #fff;
+}
+.notice--item{
+	border-top: 1px solid #fff; 
+}
+.notice--link{
+	border-bottom: 1px solid #fff; 
+	padding: 1rem 0;
+}
+.notice--more--btn{
+	color: #fff;
+	margin-top: 2rem;
+}
+.notice--more--btn i{
+	margin-left: 6px;
+}
+.notice--more--btn:hover{
+	text-decoration: none;
+	color : #fff;
+}
+
+/* contact us */
+.contact--us{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+}
+.contact--us img{
+    width: 100%;
+}
+.cover--text{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 88;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 11%;
+    color: #000000;
+    text-shadow: 1px 1px 5px #ffffff;
+}
+.cover--title{
+    font-size: 40px;
+    font-weight: bold;
+}
+.contact--us:hover .cover--text{
+    background-color: rgba(63, 63, 63, 0.4);
+    color: #fff;
+    text-shadow: none;
+}
+.contact--us:hover img {
+    display: block;
+    transform: scale(1.2);
+    transition: transform .5s;
+}
+.cover--p{
+    transform: translateY(30px);
+    opacity: 0;
+}
+.contact--us:hover .cover--p{
+    transform: translateY(0px);
+    transition: transform .4s;
+    opacity: 1;
+}
+
+#hidden-click-area {
+    position: absolute;
+    top: 20px; /* 원하는 위치 설정 */
+    left: 20px; /* 원하는 위치 설정 */
+    width: 50px; /* 영역의 너비 */
+    height: 50px; /* 영역의 높이 */
+    z-index: 9999; /* 다른 요소 위에 표시 */
+    transition: background-color 0.3s ease; /* 배경색 변경 애니메이션 */
+    /* cursor 스타일을 제거하여 커서 기본값 유지 */
+}

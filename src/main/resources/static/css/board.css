@@ -1,0 +1,183 @@
+@charset "UTF-8";
+
+.body--bg{
+    background-color: #fff;
+}
+
+.random-image {
+    max-width: 100%; /* 이미지가 부모 요소의 너비를 넘지 않도록 */
+    height: auto; /* 가로세로 비율 유지 */
+    display: block; /* 이미지 아래 공백 제거 */
+    margin: 0 auto; /* 이미지 중앙 정렬 */
+    border-radius: 8px; /* 이미지를 둥글게 */
+}
+
+.sub--title {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* sub banner */
+.sub--banner{
+	background: url("/images/sub/subBannerLight.png") no-repeat top;
+	height: 370px;
+}
+.sub--banner h1{
+	font-family: "Montserrat", sans-serif;
+  	font-optical-sizing: auto;
+  	font-weight: 800;
+  	font-style: italic;
+  	text-align: center;
+	padding-top: 10rem;
+	letter-spacing: 10px;
+}
+
+/* container */
+.container{
+	padding-top: 2rem;
+}
+
+.search--btn{
+	width: 100px;
+	height: 42px;
+	border: none;
+	border-radius: 10px;
+	background-color: #9E61C1;
+	color: #fff;
+	margin-top: 0.4rem;
+}
+
+/* pagination */
+.page--link{
+	cursor: pointer;
+	color: #ababab;
+	width: 24px;
+	height: 24px;
+}
+.page--link:hover{
+	text-decoration: none;
+	color: #9E61C1;
+}
+.active{
+	background-color: #eee;
+	border-radius: 50%;
+}
+.active a{
+	color: #333;
+}
+
+/* FAQ*/
+#inner--faq {
+	border: 1px solid #eee;
+	border-radius: 20px;
+}
+
+/*js제어*/
+#section1 {
+    width: 1020px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.font_10 {
+    font-size: 28px;
+    box-sizing: border-box;
+}
+
+.right {
+    position: relative;
+    width: 1020px;
+    padding: 10px 0;
+    float: right;
+    overflow: hidden;
+    border-radius: 0 20px 20px 0;
+}
+
+.right ul li:nth-child(1) {
+    text-align: center;
+    float: left;
+    width: 43px;
+    height: 43px;
+}
+
+.right ul li:nth-child(2) {
+    width: 800px;
+    float: left;
+}
+
+.right ul li:nth-child(3) {
+    width: 30px;
+    float: right;
+    padding-top: 17.5px
+}
+
+.right>li ul {
+    width: 100%;
+    height: 50px;
+    padding: 15px 0;
+    overflow: hidden;
+}
+
+.text_info {
+    background: #ffffff;
+    text-align: left;
+    overflow: hidden;
+}
+
+.right>li .text_info {
+    display: none;
+    padding: 1rem 0 0 3rem;
+}
+
+.right>li .text_info {
+    width: 100%
+}
+
+.text_info p {
+    float: left;
+    font-size: 16px;
+    padding-left: 10px;
+}
+
+.notice_line {
+    height: 1px;
+    text-align: center;
+    width: 100%;
+    background: #eee;
+    margin-top: 0.5rem;
+}
+
+.right .font_18 {
+    position: relative;
+    height: 50px;
+    color: #333;
+    font-size: 20px;
+}
+
+.right .font_18 .noc_po {
+    position: absolute;
+    left: 2%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.turn {
+    transform: rotate(180deg);
+}
+
+.faq_plus i{
+    transition: transform 0.5s;
+}
+
+.answer {
+    text-align: center;
+    font-size: 28px;
+    box-sizing: border-box;
+}
+.random-image {
+    max-width: 100%; /* 이미지가 부모 요소의 너비를 넘지 않도록 */
+    height: auto; /* 가로세로 비율 유지 */
+    display: block; /* 이미지 아래 공백 제거 */
+    margin: 0 auto; /* 이미지 중앙 정렬 */
+    border-radius: 8px; /* 이미지를 둥글게 */
+}

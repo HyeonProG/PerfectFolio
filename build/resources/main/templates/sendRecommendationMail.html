@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfect Folio</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f0f0f0;">
+
+<div style="background-color: white; padding: 40px 0; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
+  <h1 style="font-size: 28px; margin: 20px 0 10px;">Perfect Folio와 함께 미래를 설계하세요.</h1>
+  <p style="color: #666; font-size: 16px; margin: 0;">오늘 매칭된 회사와의 인연을 확인하세요. 매일 새로운 기회가 <span th:text="${userName}"></span>님을 기다리고 있습니다.</p>
+  <div style="margin-top: 20px;">
+    <button style="background-color: #c570ff; color: #ffffff; border: none; padding: 10px 20px; font-size: 16px; border-radius: 5px;">
+      <a href="http://perfecfolio.jinnymo.com">매칭된</a><a th:text="${recommendationCount}" style="color: white;"></a><a>개의 공고 보러가기</a>
+    </button>
+  </div>
+</div>
+
+<!-- 이벤트 카드 섹션 -->
+<div style="padding: 40px 20px;">
+  <table style="width: 500px; margin: 0 auto; border-collapse: collapse;">
+    <tr>
+      <!-- 카드 1 -->
+      <td style="padding: 10px; vertical-align: top;">
+        <div style="padding: 20px; background-color: white; border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); width: 300px; height: 300px;">
+          <img src="/static/images/email/firstCard.png" alt="카드 이미지 1" style="width: 50px; height: 50px;">
+          <h3 style="font-size: 18px; color: #333;">매칭률을 올리려면?</h3>
+          <p style="color: #666; font-size: 14px;">끊임없는 성장과 스스로를 갈고 닦는 노력이 더 많은 기회를 불러옵니다.</p>
+          <p style="color: #666; font-size: 14px;">기술을 연마해 더 높은 매칭률을 달성하세요!</p>
+        </div>
+      </td>
+
+      <!-- 카드 2 -->
+      <td style="padding: 10px; vertical-align: top;">
+        <div style="padding: 20px; background-color: white; border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); width: 300px; height: 300px;">
+          <img src="/static/images/email/secondCard.png" alt="카드 이미지 2" style="width: 50px; height: 50px;">
+          <h3 style="font-size: 18px; color: #333;">Perfect Folio와 함께라면</h3>
+          <p style="color: #666; font-size: 14px;">여러분의 가능성을 펼칠 더 많은 기회를 찾으세요.</p>
+          <p style="color: #666; font-size: 14px;">Perfect Folio는 여러분과 회사 간의 완벽한 연결을 도와드립니다.</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <!-- 카드 3 -->
+      <td style="padding: 10px; vertical-align: top;">
+        <div style="padding: 20px; background-color: white; border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); width: 300px; height: 300px;">
+          <img src="/static/images/email/thirdCard.png" alt="카드 이미지 3" style="width: 50px; height: 50px;">
+          <h3 style="font-size: 18px; color: #333;">더 정확하고, 더 섬세하게</h3>
+          <p style="color: #666; font-size: 14px;">Premium 구독으로 맞춤형 추천을 받아보세요. 정확한 매칭으로 더 나은 직업 기회를 찾아가세요.</p>
+          <p style="font-size: 14px; color: #666;">Basic: 5,900원 | Premium: 12,900원</p>
+          <a href="http://perfecfolio.jinnymo.com/pay/subscribe" style="color: #0071e3; font-size: 14px;">지금 결제하기</a>
+        </div>
+      </td>
+
+      <!-- 카드 4 -->
+      <td style="padding: 10px; vertical-align: top;">
+        <div style="padding: 20px; background-color: white; border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); width: 300px; height: 300px;">
+          <img src="/static/images/email/fourthCard.png" alt="카드 이미지 4" style="width: 50px; height: 50px;">
+          <h3 style="font-size: 18px; color: #333;">바쁜 당신을 위하여</h3>
+          <p style="color: #666; font-size: 14px;">시간을 절약하고 최적의 기회를 놓치지 마세요.</p>
+          <p style="color: #666; font-size: 14px;">Perfect Folio가 가장 적합한 공고를 선별해드립니다.</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+<!-- Footer -->
+<footer style="background-color: white; padding: 20px; text-align: center; font-size: 12px; color: #666; box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);">
+  <p style="margin-bottom: 5px;">Copyright © 2024 Perfect Folio Inc. Busan</p>
+  <a href="#" style="color: #0071e3;">모든 권리 보유</a> |
+  <a href="#" style="color: #0071e3;">개인정보 처리방침</a> |
+  <a href="#" style="color: #0071e3;">계정</a>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-PerfectFolioApplication<perfect_folio>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.tenco.perfectfolio.PerfectFolioApplication",
+            "projectName": "perfect_folio",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

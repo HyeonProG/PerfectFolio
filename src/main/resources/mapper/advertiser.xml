@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.tenco.perfectfolio.repository.interfaces.advertiser.AdvertiserRepository">
+
+	<insert id="insert">
+		INSERT INTO advertiser (user_id, user_name, password, user_tel)
+		VALUES (#{userId}, #{username}, #{password}, #{userTel})
+	</insert>
+
+	<insert id="insertRequestRefund">
+		INSERT INTO
+		ad_request_refund_tb(paymentDate,paymentAmount,refundAmount,reason,user_id)
+		VALUES(#{paymentDate},#{paymentAmount},#{refundAmount},#{reason},#{userId})
+	</insert>
+
+	<select id="checkDuplicateId">
+		SELECT count(user_id) FROM advertiser WHERE user_id = #{userId}
+	</select>
+
+	<select id="findByUserId">
+		SELECT * FROM advertiser WHERE user_id = #{userId}
+	</select>
+
+	<select id="findAllUser">
+		SELECT * FROM advertiser
+	</select>
+
+	<select id="findById">
+		SELECT * FROM advertiser WHERE id = #{id}
+	</select>
+	
+	<select id="readRequestList">
+		SELECT * FROM ad_request_refund_tb WHERE approved = "대기중" ORDER BY id DESC LIMIT #{size} OFFSET #{offset}
+	</select>
+	<select id="readDoneRequestList">
+		SELECT * FROM ad_request_refund_tb WHERE approved != "대기중" ORDER BY id DESC LIMIT #{size} OFFSET #{offset}
+	</select>
+
+	<insert id="insertAd">
+		INSERT into ad_application (user_id, title, content, site,
+		origin_file_name, upload_file_name)
+		VALUES (#{userId}, #{title}, #{content}, #{site}, #{originFileName},
+		#{uploadFileName})
+	</insert>
+
+	<update id="updateBalance">
+		UPDATE advertiser SET balance = #{newBalance} WHERE id = #{id}
+	</update>
+
+	<update id="updateTreatment">
+		UPDATE ad_request_refund_tb
+		SET approved = #{treatment}, reject_reason = #{reject}
+		WHERE id = #{id}
+	</update>
+
+	<select id="findPendingApplications">
+		SELECT ad.id, a.user_name, ad.title, ad.content, ad.view_count, ad.site,
+		ad.origin_file_name, ad.upload_file_name, ad.created_at, ad.state
+		FROM ad_application as ad
+		join advertiser as a
+		on ad.user_id = a.id
+		WHERE state LIKE "대기"
+		ORDER BY created_at ASC LIMIT #{size} OFFSET #{offset}
+	</select>
+
+	<select id="findAllPendingApplications">
+		SELECT ad.id, a.user_name, ad.title, ad.content, ad.view_count, ad.site,
+		ad.origin_file_name, ad.upload_file_name, ad.created_at, ad.state
+		FROM ad_application as ad
+		join advertiser as a
+		on ad.user_id = a.id
+		WHERE state LIKE "대기"
+	</select>
+
+	<select id="findAllPendingApplicationsByIdWithPage">
+		SELECT ad.id, a.user_name, ad.title, ad.content, ad.view_count, ad.site,
+		ad.origin_file_name, ad.upload_file_name, ad.created_at, ad.state
+		FROM ad_application as ad
+		join advertiser as a
+		on ad.user_id = a.id
+		WHERE state != "취소"
+		AND a.id = #{id}
+		ORDER BY created_at ASC LIMIT #{size} OFFSET #{offset}
+	</select>
+
+	<select id="findAllPendingApplicationsById">
+		SELECT ad.id, a.user_name, ad.title, ad.content, ad.view_count, ad.site,
+		ad.origin_file_name, ad.upload_file_name, ad.created_at, ad.state
+		FROM ad_application as ad
+		join advertiser as a
+		on ad.user_id = a.id
+		WHERE state != "취소"
+		AND a.id = #{id}
+	</select>
+
+	<select id="countAllPendingApplicationsById">
+		SELECT COUNT(*)
+		FROM ad_application as ad
+		join advertiser as a
+		on ad.user_id = a.id
+		WHERE state != "취소"
+		AND a.id = #{id}
+	</select>
+
+	<select id="findUsingApplicationsByIdWithPage">
+		SELECT * FROM ad_application
+		WHERE state LIKE "승인"
+		OR state LIKE "중지"
+		AND user_id = #{id}
+		ORDER BY created_at ASC LIMIT #{size} OFFSET #{offset}
+	</select>
+
+	<select id="findUsingApplicationsById">
+		SELECT * FROM ad_application
+		WHERE state LIKE "승인"
+		OR state LIKE "중지"
+		AND user_id = #{id}
+	</select>
+
+	<select id="countFindUsingApplicationsById">
+		SELECT COUNT(*)
+		FROM ad_application
+		WHERE (state LIKE "승인"
+		OR state LIKE "중지")
+		AND user_id = #{id}
+	</select>
+
+	<select id="findApplicationById">
+		SELECT ad.id, a.user_name, ad.title, ad.content, ad.site,
+		ad.origin_file_name, ad.upload_file_name, ad.created_at, ad.state
+		FROM ad_application as ad
+		join advertiser as a
+		on ad.user_id = a.id
+		WHERE ad.id = #{id}
+	</select>
+
+	<select id="findPendingApplication">
+		SELECT * FROM ad_application WHERE state = '대기'
+	</select>
+
+	<select id="countPendingApplications">
+		SELECT COUNT(*)
+		FROM ad_application as ad
+		join advertiser as a
+		on ad.user_id = a.id
+		WHERE state LIKE "대기"
+	</select>
+
+	<update id="updateAdApplicationState">
+		UPDATE ad_application SET state = #{state} WHERE id = #{id}
+	</update>
+
+	<select id="findApproveApplications">
+		SELECT ad.id, ad.user_id, a.user_name, ad.title, ad.content, ad.site,
+		ad.origin_file_name, ad.upload_file_name, a.balance, ad.state,
+		ad.created_at
+		FROM ad_application AS ad
+		JOIN advertiser AS a
+		ON ad.user_id = a.id
+		WHERE a.balance > 0
+		AND ad.state = "승인";
+	</select>
+
+	<update id="updateImageViewCount">
+		UPDATE ad_application
+		SET view_count = view_count + #{viewCount}
+		WHERE upload_file_name = #{uploadFileName}
+	</update>
+
+	<select id="findBalanceById">
+		SELECT balance
+		FROM advertiser
+		WHERE id = #{id}
+	</select>
+
+	<delete id="deleteAdApplication">
+		DELETE FROM ad_application WHERE id = #{id}
+	</delete>
+
+	<select id="findFileNameById">
+		SELECT upload_file_name FROM ad_application WHERE id = #{id}
+	</select>
+
+	<update id="updateImageClickCount">
+		UPDATE ad_application
+		SET click_count = click_count + #{clickCount}
+		where upload_file_name = #{uploadFileName}
+	</update>
+
+	<insert id="insertPayment">
+		INSERT INTO ad_payment_tb(user_id, payment_key, order_id, amount,
+		requested_at, approved_at)
+		VALUES(#{userId}, #{paymentKey}, #{orderId}, #{amount}, #{requestedAt},
+		#{approvedAt})
+	</insert>
+
+	<insert id="insertRefund">
+		INSERT INTO ad_refund_tb(user_id, payment_key, cancel_amount,
+		cancel_reason, requested_at, approved_at)
+		VALUES(#{userId}, #{paymentKey}, #{cancelAmount}, #{cancelReason},
+		#{requestedAt}, #{approvedAt})
+	</insert>
+
+	<select id="findPaymentListByUserId">
+		SELECT * FROM ad_payment_tb where user_id = #{userId}
+	</select>
+
+	<select id="readAllPaymentList">
+		SELECT * FROM ad_payment_tb LIMIT #{size} OFFSET #{offset}
+	</select>
+
+	<select id="getPayListCounts">
+		SELECT COUNT(*) FROM ad_payment_tb
+	</select>
+
+	<select id="readAllRequestList">
+		SELECT * FROM ad_request_refund_tb LIMIT #{size} OFFSET #{offset}
+	</select>
+	
+	<select id="getRequestListCounts">
+		SELECT COUNT(*) FROM ad_request_refund_tb
+	</select>
+
+	<insert id="insertWithdraw">
+		INSERT INTO advertiser_withdraw_tb(user_id, user_name, password,
+		user_tel, created_at)
+		VALUES (#{userId}, #{username}, #{password}, #{userTel}, #{createdAt})
+	</insert>
+
+	<insert id="insertWithdrawReason">
+		INSERT INTO advertiser_withdraw_reason_tb(user_id, reason)
+		VALUES(#{userId}, #{reason})
+	</insert>
+
+	<delete id="deleteAdvertiser">
+		DELETE FROM advertiser WHERE user_id = #{userId}
+	</delete>
+
+	<select id="countAllViewCount">
+		SELECT sum(view_count) AS view_count FROM ad_application
+	</select>
+
+	<select id="countAllClickCount">
+		SELECT sum(click_count) AS click_count FROM ad_application
+	</select>
+	
+	<select id="countAllAdPayment">
+		SELECT sum(amount) AS amount FROM ad_payment_tb
+	</select>
+	
+	<select id="countAllAdRefundPayment">
+		SELECT sum(refundAmount) AS amount FROM ad_request_refund_tb
+	</select>
+	
+	<select id="countAllAdRefundAmount">
+		SELECT sum(cancel_amount) AS amount FROM ad_refund_tb;
+	</select>
+
+</mapper>

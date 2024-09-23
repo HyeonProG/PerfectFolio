@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.tenco.perfectfolio.repository.interfaces.UserRepository">
+
+	<insert id="insert">
+		INSERT INTO user_tb(user_name, user_id,
+		user_password, user_nickname,
+		user_email,user_birth,user_gender,user_tel,social_type)
+		VALUES (
+		#{username}, #{userId}, #{userPassword}, #{userNickname},
+		#{userEmail},#{userBirth},#{userGender},#{userTel},#{socialType})
+	</insert>
+
+	<insert id="insertWithdraw">
+		INSERT INTO user_withdraw_tb(user_name, user_id,
+		user_password, user_nickname,
+		user_email,user_birth,user_gender,user_tel,social_type,created_at)
+		VALUES ( #{username}, #{userId}, #{userPassword}, #{userNickname},
+		#{userEmail},#{userBirth},#{userGender},#{userTel},#{socialType},#{createdAt})
+	</insert>
+
+	<insert id="insertWithdrawReason">
+		INSERT INTO withdraw_reason_tb(user_id, reason,
+		reason_detail)
+		VALUES (#{userId}, #{reason}, #{reasonDetail})
+	</insert>
+
+
+	<select id="checkDuplicateID">
+		SELECT count(user_id) FROM user_tb WHERE user_id =
+		#{userId}
+	</select>
+
+	<select id="checkDuplicateEmail">
+		SELECT count(user_email) FROM user_tb WHERE
+		user_email = #{userEmail}
+	</select>
+
+	<update id="changePassword">
+		UPDATE user_tb SET user_password = #{newPassword}
+		WHERE user_id = #{userId}
+	</update>
+
+	<select id="findByid">
+		SELECT * FROM user_tb WHERE id = #{id}
+	</select>
+
+	<select id="findByUserEmail">
+		SELECT * FROM user_tb WHERE user_email = #{userEmail}
+	</select>
+
+	<select id="findByUserId">
+		SELECT
+			u.*,
+			s.subscribing,
+			s.order_name
+		FROM user_tb as u
+				 LEFT JOIN subscribing_tb as s
+						   ON u.id = s.user_id
+		WHERE u.user_id = #{userId};
+	</select>
+
+	<delete id="delete">
+		DELETE FROM user_tb WHERE ID = #{id}
+	</delete>
+
+	<select id="findAllNotices"
+		resultType="com.tenco.perfectfolio.repository.model.Notice">
+		SELECT * FROM notice_tb
+	</select>
+
+	<delete id="deleteOldWithdraw">
+		DELETE FROM user_withdraw_tb
+		WHERE withdraw_at &lt;= NOW() - INTERVAL 3 YEAR;
+	</delete>
+
+	<update id="updateUserInfo">
+		UPDATE user_tb
+		SET
+		    user_name = #{username},
+			user_password = #{userPassword},
+			user_nickname = #{userNickname},
+			user_email = #{userEmail},
+			user_tel = #{userTel}
+		WHERE id = #{id}
+	</update>
+
+	<select id="getCountResults" resultType="com.tenco.perfectfolio.dto.CountResultDTO">
+		SELECT
+			1 AS id, COUNT(*) AS count
+		FROM
+			recommended_companies
+		UNION SELECT
+				  2 AS id, COUNT(*) AS count
+			  FROM
+				  recommended_companies
+			  WHERE
+				  DATE(recommended_date) = CURDATE()
+			  UNION SELECT
+						3 AS id, COUNT(*) AS count
+					FROM
+						crawl_notice_json
+					UNION SELECT
+							  4 AS id, COUNT(*) AS count
+						  FROM
+							  crawl_notice_json
+						  WHERE
+							  DATE(created_at) = (CURDATE() - 1)
+	</select>
+
+	<select id="findAll">
+		select * from user_tb
+	</select>
+</mapper>

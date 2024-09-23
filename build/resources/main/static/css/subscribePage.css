@@ -1,0 +1,114 @@
+@charset "UTF-8";
+
+.body--bg {
+	background-color: #fff;
+}
+
+/* 탭 메뉴 */
+a {
+	display: block;
+	text-decoration: none;
+	color: #333;
+}
+
+a:hover {
+	text-decoration: none;
+	color: none;
+}
+
+.tabMenu {
+	border-top: 1px solid #d5d5d5;
+	border-bottom: 1px solid #d5d5d5;
+	margin: 1rem 0;
+	text-align: center;
+}
+
+.tabs {
+	margin: 0;
+}
+
+.tabs li {
+	width: 30%;
+}
+
+.tabBtn {
+	color: #d5d5d5;
+	padding: 1rem;
+	padding-bottom: 0;
+	cursor: pointer;
+}
+
+.active {
+	color: #333;
+	font-weight: bold;
+}
+
+.active::after {
+	content: "";
+	display: block;
+	width: 100%;
+	height: 2px;
+	margin-top: 1rem;
+	background-color: #333;
+	animation: sort .2s linear;
+}
+
+@keyframes sort { 
+	0%{width: 0;}
+	100%{width:100%;}
+};
+
+/* content */
+.content--wrap{
+	padding-top: 60px;
+	text-align: center;
+}
+
+/* subscribe--list */
+.tabPanel{
+	width: 710px;
+	margin: 0 auto;
+}
+.subscribe--list{
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+}
+.subscribe--list--item{
+	border: 1px solid #eee; 
+	border-radius: 10px;
+	padding: 1rem 0;
+	margin: 0 2px;
+	width: 350px;
+}
+/* 결제 버튼 강조 효과 */
+.custom--btn {
+	width: 180px;
+	height: 40px;
+	color: #fff;
+	border-radius: 5px;
+	font-weight: 500;
+	outline: none;
+	border: 0;
+	position: relative;
+	background: linear-gradient(#b621fe, #1fd1f9);
+	background-size: 200% 200%;
+	animation: gradient 5s infinite;
+	position: relative;
+	transition: all .4s ease-out 0s;
+}
+
+/* @keyframes gradient {
+0%, 100%{background-position: 0% 0%;} 
+20%{background-position:0% 20%;}
+40%{background-position:0% 40%;}
+60%{background-position:0% 60%;}
+80%{background-position:0% 80%;}
+}; */
+
+.custom--btn:hover {
+	background: #fff;
+	color: #333;
+	font-weight: bold;
+	border: 1px solid #b621fe;
+}

@@ -1,0 +1,171 @@
+@charset "UTF-8";
+/* main */
+
+.body--bg{
+    background-color: #fff;
+}
+
+.random-image {
+    max-width: 100%; /* 이미지가 부모 요소의 너비를 넘지 않도록 */
+    height: auto; /* 가로세로 비율 유지 */
+    display: block; /* 이미지 아래 공백 제거 */
+    margin: 0 auto; /* 이미지 중앙 정렬 */
+    border-radius: 8px; /* 이미지를 둥글게 */
+}
+
+.user--section{
+	width:100vh;
+	margin: 0 auto;
+	padding-top: 80px;
+	display: flex;
+	justify-content: space-between;
+}
+
+/* side bar */
+.personal--bar{
+	width: 200px;
+	border: 1px solid #eee;
+	border-radius: 20px;
+	padding: 1rem;
+	box-sizing: border-box;
+}
+.bar--items {
+	margin-bottom: 2rem;
+}
+.bar--items p{
+	color: #A4A4A4;
+	margin-bottom: 12px;
+}
+.bar--items a{
+	color: #333;
+	padding: 0.5rem 0rem 0.5rem 1rem;
+}
+.bar--items a:hover{
+	background-color: #FAF2FF;
+	text-decoration: none;
+}
+.bar--selected{
+	background-color: #FAF2FF;
+}
+
+/* content */
+.personal--wrap{
+	width: 70vh;
+}
+.inner--personal{
+	border: 1px solid #eee;
+	border-radius: 20px;
+	padding: 2rem;
+}
+
+.user--info table{
+	text-align: left;
+	margin: 1rem auto;
+}
+.user--info table tr{
+	height: 2.5rem;
+}
+.user--info table th{
+	color: #A4A4A4;
+}
+.user--info table td{
+	padding-left: 2.5rem;
+}
+
+/* btn */
+.inline--btn--wrap{
+	text-align: right;
+}
+.info--btn{
+	display: inline-block;
+	width: 120px;
+	height:44px;
+	border: none;
+	border-radius: 20px;
+	padding: 0.6rem 0 0.5rem 0;
+	background-color: #BC91E6;
+	color: #fff;
+	text-align: center;
+}
+.info--btn:hover{
+	text-decoration: none;
+	color: #BC91E6;
+	background-color: #fff;
+	border: 1px solid #BC91E6; 
+}
+
+/* Skills List Container */
+.skill-container {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	padding: 20px;
+	margin: 0 auto;
+	width: 60%;
+}
+
+/* Skills List */
+.skill-list {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
+
+/* Each Skill Box */
+.skill-box {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 15px;
+	padding: 20px;
+	background-color: #f8f9fa;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease;
+}
+
+/* Hover Effect on Skill Box */
+.skill-box:hover {
+	transform: translateY(-5px);
+}
+
+/* Skill Category */
+.skill-category {
+	font-weight: bold;
+	font-size: 1.2em;
+	color: #6c757d;
+	margin-bottom: 10px;
+	text-transform: capitalize;
+}
+
+/* Skill Items */
+.skill-items {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+/* Each Skill Name */
+.skill-name {
+	background-color: #BC91E6;
+	color: white;
+	padding: 5px 10px;
+	border-radius: 15px;
+	font-weight: bold;
+}
+
+/* Skill Level */
+.skill-level {
+	margin-left: 5px;
+	padding-top: 3px;
+	padding-right: 5px;
+	color: #343a40;
+	font-weight: bold;
+}
+.random-image {
+    max-width: 100%; /* 이미지가 부모 요소의 너비를 넘지 않도록 */
+    height: auto; /* 가로세로 비율 유지 */
+    display: block; /* 이미지 아래 공백 제거 */
+    margin: 0 auto; /* 이미지 중앙 정렬 */
+    border-radius: 8px; /* 이미지를 둥글게 */
+}

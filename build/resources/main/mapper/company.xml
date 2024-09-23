@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="com.tenco.perfectfolio.repository.interfaces.CompanyRepository">
+
+<select id="getSimilarityList">
+	SELECT
+		u.id,
+		u.user_name,
+		r.similarity
+	FROM recommended_companies AS r
+			 LEFT JOIN user_tb AS u
+					   ON r.user_id = u.id
+	WHERE r.id = #{companyId}
+	ORDER BY similarity DESC;
+</select>
+
+	<select id="getPopularUsers">
+		SELECT
+		    u.user_name as name,
+		    COUNT(h.user_id) AS count
+		FROM co_search_user_history AS h
+			JOIN user_tb AS u ON h.user_id = u.id
+		GROUP BY u.user_name
+		ORDER BY count DESC;
+	</select>
+
+	<select id="getCategories" resultType="String">
+
+		select distinct name from skill_category where p_id is not null
+		union
+		select distinct name from qualifications_category where p_id is not null
+	
+	</select>
+	
+	<select id="getBookmarkList" resultType="com.tenco.perfectfolio.repository.model.company.Bookmark">
+	
+		select * from co_bookmark
+	
+	</select>
+
+	<insert id="insertPayment">
+		insert into co_payment_history_tb(user_id, goods_name, goods_price)
+		values(#{userId}, #{orderName}, #{amount})
+	</insert>
+
+	<select id="getGoodsByComId" resultType="int">
+		SELECT COUNT(*) AS count FROM co_goods_tb WHERE com_id = #{comId}
+	</select>
+
+	<select id="selectGoods">
+		select goods_num from co_goods_tb where com_id = #{comId};
+	</select>
+
+	<insert id="insertGoods">
+		INSERT INTO co_goods_tb(com_id, goods_num) VALUES (#{comId}, #{goodsEach});
+	</insert>
+
+	<update id="updateGoodsMinus">
+		UPDATE co_goods_tb SET goods_num = (goods_num - 1), used_date = NOW() WHERE com_id = #{comId}
+	</update>
+
+	<update id="updateGoodsAdd">
+		UPDATE co_goods_tb SET goods_num = (goods_num + #{goodsEach}) WHERE com_id = #{comId}
+	</update>
+
+	<select id="selectPayHistory">
+		select * from co_payment_history_tb where user_id = #{comId} order by payment_date desc
+	</select>
+
+	<select id="selectProposal">
+		SELECT
+			u.user_name, c.proposal_date, c.status, u.user_email, u.user_gender, u.user_tel
+		FROM
+			co_proposal AS c
+				JOIN
+			user_tb AS u ON c.user_id = u.id
+		WHERE
+			c.com_id = #{comId}
+	</select>
+
+</mapper>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.tenco.perfectfolio.repository.interfaces.PortfolioRepository">
+
+	<insert id="insert">
+		INSERT INTO user_portfolio_tb (user_id, origin_file_name,
+		upload_file_name)
+		VALUES (#{userId}, #{originFileName}, #{uploadFileName})
+	</insert>
+
+	<update id="update">
+		UPDATE user_portfolio_tb
+		SET origin_file_name = #{originFileName}, upload_file_name = #{uploadFileName}, status = #{status}
+		WHERE user_id = #{userId}
+	</update>
+
+	<select id="getMyPortfolio">
+		SELECT * FROM user_portfolio_tb WHERE user_id = #{userPk}
+	</select>
+
+	<select id="getMyPortfolioApproval">
+		SELECT * FROM user_portfolio_tb WHERE user_id = #{userPk} AND status = '승인'
+	</select>
+
+	<select id="getMyPortfolioWait" resultType="com.tenco.perfectfolio.repository.model.Portfolio">
+		SELECT * FROM user_portfolio_tb WHERE status = '대기'
+	</select>
+
+	<select id="getMyPortfolioStatus">
+		SELECT status FROM user_portfolio_tb WHERE user_id = #{userPk}
+	</select>
+
+	<update id="updatePortfolioApproval">
+		UPDATE user_portfolio_tb SET status = '승인' WHERE user_id = #{userPk}
+	</update>
+
+	<update id="updatePortfolioCompanion">
+		UPDATE user_portfolio_tb SET status = '반려' WHERE user_id = #{userPk}
+	</update>
+
+</mapper>

@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="com.tenco.perfectfolio.repository.interfaces.admin.AdminUserRepository">
+
+
+
+	<select id="selectTodayRegisterUsers"
+		resultType="com.tenco.perfectfolio.repository.model.User">
+		SELECT * FROM user_tb
+		WHERE DATE(created_at) = CURDATE()
+		ORDER BY created_at DESC
+		LIMIT #{offset}, #{limit};
+	</select>
+
+	<select id="selectAllUsers"
+		resultType="com.tenco.perfectfolio.repository.model.User">
+		SELECT * FROM user_tb
+		ORDER BY created_at DESC
+		LIMIT
+		#{offset}, #{limit};
+	</select>
+
+	<select id="countRegisterUsersByDate" resultType="integer">
+		SELECT COUNT(*)
+		FROM user_tb
+		WHERE DATE(created_at) = #{date}
+	</select>
+
+	<select id="countUsersActByWeek"
+		resultType="com.tenco.perfectfolio.repository.model.admin.UsersCountByWeekModel">
+
+		WITH RECURSIVE DateRange AS (
+		SELECT DATE('${startDate}') AS
+		date
+		UNION ALL
+		SELECT DATE(date + INTERVAL 1 DAY)
+		FROM DateRange
+		WHERE
+		DATE(date + INTERVAL 1 DAY) &lt;= DATE('${endDate}')
+		)
+		SELECT
+		dr.date AS
+		date,
+		IFNULL(signups.signup_count, 0) AS signup_count,
+		IFNULL(withdrawals.withdraw_count, 0) AS withdraw_count
+		FROM
+		DateRange
+		dr
+		LEFT JOIN
+		(SELECT DATE(created_at) AS date, COUNT(*) AS signup_count
+		FROM user_tb
+		WHERE created_at BETWEEN '${startDate}' AND '${endDate}'
+		GROUP BY DATE(created_at)
+		) signups
+		ON dr.date = signups.date
+		LEFT JOIN
+		(SELECT DATE(withdraw_at) AS date, COUNT(*) AS withdraw_count
+		FROM
+		user_withdraw_tb
+		WHERE withdraw_at BETWEEN '${startDate}' AND
+		'${endDate}'
+		GROUP BY DATE(withdraw_at)
+		) withdrawals
+		ON dr.date =
+		withdrawals.date
+		ORDER BY
+		dr.date ASC
+	</select>
+
+	<select id="findAdminInfo"
+		resultType="com.tenco.perfectfolio.repository.model.admin.Admin">
+		SELECT * FROM admin_tb WHERE admin_id = #{adminId}
+	</select>
+
+	<update id="updatePassword">
+		UPDATE admin_tb SET admin_password = #{newPassword}
+		WHERE admin_id =
+		#{adminId}
+	</update>
+
+	<select id="countAllUsers" resultType="integer">
+		SELECT COUNT(*) FROM
+		user_tb
+	</select>
+
+	<select id="countAllUsersByMonth"
+		resultType="com.tenco.perfectfolio.dto.admin.UserCountDTO">
+		SELECT YEAR(created_at) AS year, MONTH(created_at) AS
+		month, COUNT(*) AS count FROM user_tb
+		GROUP BY YEAR(created_at),
+		MONTH(created_at)
+	</select>
+
+	<select id="countUserByGender"
+		resultType="com.tenco.perfectfolio.dto.admin.UserCountDTO">
+		SELECT user_gender AS gender, COUNT(*) AS count FROM
+		user_tb GROUP BY user_gender
+	</select>
+
+	<select id="countUserBySocialType"
+		resultType="com.tenco.perfectfolio.dto.admin.UserCountDTO">
+		SELECT social_type AS socialType, COUNT(*) AS count FROM
+		user_tb GROUP BY social_type
+	</select>
+
+	<select id="countUserByAge"
+		resultType="com.tenco.perfectfolio.dto.admin.UserCountDTO">
+		SELECT CASE
+		WHEN YEAR(CURDATE()) - YEAR(user_birth) &lt; 10
+		THEN '10대 미만'
+		WHEN YEAR(CURDATE()) - YEAR(user_birth) BETWEEN 10 AND 19
+		THEN '10대'
+		WHEN YEAR(CURDATE()) - YEAR(user_birth) BETWEEN 20 AND 29
+		THEN '20대'
+		WHEN YEAR(CURDATE()) - YEAR(user_birth) BETWEEN 30 AND 39
+		THEN '30대'
+		WHEN YEAR(CURDATE()) - YEAR(user_birth) BETWEEN 40 AND 49
+		THEN '40대'
+		WHEN YEAR(CURDATE()) - YEAR(user_birth) &gt;= 50 THEN '50대
+		이상'
+		ELSE '연령 불명'
+		END AS ageGroup, COUNT(*) AS count FROM user_tb
+		WHERE
+		social_type = 'naver' GROUP BY ageGroup
+	</select>
+
+	<select id="selectUserAllWithPay"
+		resultType="com.tenco.perfectfolio.dto.admin.UserManagementDTO">
+		SELECT DISTINCT u.id, u.user_name AS username, u.user_id AS
+		userId,
+		u.user_email AS userEmail, u.user_nickname as userNickname,
+		u.created_at AS createdAt, DATEDIFF(CURDATE(), LEFT(approved_at,
+		10))
+		AS orderDays
+		FROM user_tb AS u
+		LEFT JOIN payment_tb AS p ON u.id =
+		p.user_id
+		ORDER BY id DESC limit #{limit} offset #{offset}
+	</select>
+
+	<select id="searchByUserId"
+		resultType="com.tenco.perfectfolio.dto.admin.UserManagementDTO">
+		SELECT u.id, u.user_name AS username, u.user_id AS userId,
+		u.user_email AS userEmail,
+		u.user_nickname as userNickname,
+		u.created_at AS createdAt, DATEDIFF(CURDATE(), LEFT(approved_at, 10))
+		AS orderDays
+		FROM user_tb AS u Left JOIN payment_tb AS p ON u.id =
+		p.user_id
+		WHERE u.user_id
+		LIKE CONCAT('%', #{keyword}, '%')
+		ORDER BY id
+		DESC limit
+		#{limit} offset
+		#{offset}
+	</select>
+	<select id="searchByUserIdCount" resultType="int">
+		SELECT COUNT(*) AS
+		count FROM user_tb WHERE user_id LIKE CONCAT('%', #{keyword}, '%')
+	</select>
+
+	<select id="searchByUserName"
+		resultType="com.tenco.perfectfolio.dto.admin.UserManagementDTO">
+		SELECT u.id, u.user_name AS username, u.user_id AS userId,
+		u.user_email AS userEmail,
+		u.user_nickname as userNickname,
+		u.created_at AS createdAt, DATEDIFF(CURDATE(), LEFT(approved_at, 10))
+		AS orderDays
+		FROM user_tb AS u Left JOIN payment_tb AS p ON u.id =
+		p.user_id
+		WHERE u.user_name
+		LIKE CONCAT('%', #{keyword}, '%')
+		ORDER BY id
+		DESC limit
+		#{limit} offset #{offset}
+	</select>
+	<select id="searchByUserNameIdCount" resultType="int">
+		SELECT COUNT(*)
+		AS count
+		FROM user_tb
+		WHERE user_name LIKE CONCAT('%', #{keyword}, '%')
+	</select>
+
+
+	<select id="searchByUserNickName"
+		resultType="com.tenco.perfectfolio.dto.admin.UserManagementDTO">
+		SELECT u.id, u.user_name AS username, u.user_id AS userId,
+		u.user_email AS userEmail,
+		u.user_nickname as userNickname,
+		u.created_at AS createdAt, DATEDIFF(CURDATE(), LEFT(approved_at, 10))
+		AS orderDays
+		FROM user_tb AS u Left JOIN payment_tb AS p ON u.id =
+		p.user_id
+		WHERE u.user_nickname
+		LIKE CONCAT('%',
+		#{keyword}, '%')
+		ORDER BY
+		id DESC limit
+		#{limit} offset
+		#{offset}
+	</select>
+	<select id="searchByUserNickNameCount" resultType="int">
+		SELECT
+		COUNT(*) AS count FROM user_tb WHERE user_nickname LIKE CONCAT('%',
+		#{keyword}, '%')
+	</select>
+
+
+	<update id="updateUserInfo">
+		UPDATE user_tb SET user_name = #{username},
+		user_id =
+		#{userId},
+		user_password = #{userPassword},
+		user_nickname =
+		#{userNickname},
+		user_birth = #{userBirth},
+		user_gender = #{userGender},
+		user_tel = #{userTel}
+		WHERE id = #{id};
+	</update>
+
+	<delete id="deleteUserInfo">
+		DELETE FROM user_tb WHERE id = #{id}
+	</delete>
+
+	<select id="findUserById"
+		resultType="com.tenco.perfectfolio.repository.model.User">
+		SELECT * FROM user_tb WHERE id = #{id}
+	</select>
+
+	<insert id="insertWithdraw">
+		INSERT INTO user_withdraw_tb(user_name, user_id,
+		user_password, user_nickname,
+		user_email,user_birth,user_gender,user_tel,social_type,created_at)
+		VALUES (#{username}, #{userId}, #{userPassword}, #{userNickname},
+		#{userEmail},#{userBirth},#{userGender},#{userTel},#{socialType},#{createdAt})
+	</insert>
+
+	<select id="selectWithdraw"
+		resultType="com.tenco.perfectfolio.dto.WithdrawDTO">
+		SELECT w.id, w.user_id,
+		created_at, withdraw_at, reason,
+		reason_detail
+		FROM user_withdraw_tb AS w
+		left join withdraw_reason_tb AS
+		r on w.user_id =
+		r.user_id
+		order by
+		w.id DESC limit
+		#{limit} offset
+		#{offset}
+	</select>
+
+	<select id="countWithdraw" resultType="Integer">
+		SELECT COUNT(*) FROM
+		user_withdraw_tb
+	</select>
+
+	<select id="searchReasonDetail"
+		resultType="com.tenco.perfectfolio.dto.WithdrawDTO">
+		SELECT w.id, w.user_id,
+		created_at, withdraw_at, reason,
+		reason_detail
+		FROM user_withdraw_tb AS w
+		JOIN withdraw_reason_tb AS r ON
+		w.user_id = r.user_id
+		WHERE r.reason ='기타 사유'
+		ORDER BY r.id DESC limit
+		#{limit} offset
+		#{offset}
+	</select>
+	
+    <select id="countWithdrawReason" resultType="com.tenco.perfectfolio.dto.WithdrawDTO">
+        SELECT reason, COUNT(*) AS count
+        FROM withdraw_reason_tb
+        GROUP BY reason
+    </select>
+
+	<select id="countReasonDetail" resultType="Integer">
+		SELECT COUNT(*) AS
+		count FROM withdraw_reason_tb WHERE reason ='기타 사유'
+	</select>
+	
+	<select id="countUnsubscribe">
+		SELECT COUNT(*) FROM subscribing_tb WHERE subscribing = "N"
+	</select>
+	<select id="countAllSubAmount">
+		SELECT SUM(amount) FROM subscribing_tb
+	</select>
+	<select id="countAllSubRefund">
+		SELECT SUM(cancel_amount) FROM refund_tb
+	</select>
+
+</mapper>

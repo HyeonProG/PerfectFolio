@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+.withdraw--container {
+	width: 100vh;
+	margin: 0 auto;
+	margin-top: 80px;
+	padding-top: 40px;
+	border: 1px solid #eee;
+	border-radius: 20px;
+	padding: 2rem;
+}

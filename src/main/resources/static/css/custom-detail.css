@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+/* 상세보기 페이지 컨테이너 스타일 */
+.detail-container {
+    background-color: #f9f9f9; /* 배경색 */
+    padding: 2rem; /* 안쪽 여백 */
+    border-radius: 8px; /* 모서리 둥글게 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+    margin-bottom: 2rem; /* 바닥 여백 */
+}
+
+/* 상세보기 페이지 제목 및 버튼 스타일 */
+.detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.detail-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.detail-btn-group .btn {
+    width: auto; /* 버튼 너비 자동 */
+    height: 42px; /* 높이 */
+    border-radius: 10px; /* 둥근 모서리 */
+    padding: 0.5rem 1rem; /* 안쪽 여백 */
+    margin-left: 0.5rem; /* 버튼 간격 */
+}
+
+.detail-btn-group .btn-light {
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+.detail-btn-group .btn-primary {
+    background-color: #9E61C1;
+    color: #fff;
+}
+
+/* 상세보기 테이블 스타일 */
+.detail-table {
+    background-color: #fff; /* 배경색 */
+    border-collapse: separate; /* 셀 간격 분리 */
+    border-spacing: 0; /* 셀 간격 0 */
+    width: 100%; /* 테이블 너비 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+}
+
+.detail-table th, .detail-table td {
+    padding: 1rem; /* 안쪽 여백 */
+    vertical-align: middle; /* 수직 중앙 정렬 */
+}
+
+.detail-table th {
+    background-color: #f7f7f7; /* 헤더 배경색 */
+    font-weight: 600; /* 글꼴 두께 */
+    color: #666; /* 글꼴 색상 */
+}
+
+.detail-table tr:hover {
+    background-color: #f1f1f1; /* 행에 마우스 오버 시 배경색 */
+}
+
+/* 문의내용 셀 스타일 */
+.detail-content-cell {
+    height: 300px; /* 셀 높이 조정 (원하는 높이로 변경 가능) */
+    max-height: 300px; /* 최대 높이 설정 */
+    overflow-y: auto; /* 내용이 길 경우 스크롤 */
+    background-color: #fff; /* 배경색 */
+    border: 1px solid #eaeaea; /* 테두리 */
+    padding: 1rem; /* 안쪽 여백 */
+    line-height: 1.6; /* 줄 간격 */
+    color: #333; /* 텍스트 색상 */
+}
+
+/* 수정, 삭제 버튼 그룹 스타일 */
+.detail-btn-group .btn-warning {
+    background-color: #ffc107; /* 수정 버튼 색상 */
+    border: none;
+    color: #fff;
+}
+
+.detail-btn-group .btn-outline-danger {
+    border-color: #dc3545; /* 삭제 버튼 테두리 색상 */
+    color: #dc3545;
+}
+
+.detail-btn-group .btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: #fff;
+}

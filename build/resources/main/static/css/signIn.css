@@ -1,0 +1,163 @@
+@charset "UTF-8";
+
+.sign--title {
+	text-align: center;
+}
+
+/* sign tap */
+#formWrapper {
+	width: 100%;
+	padding: 20px 0;
+	text-align: center;
+}
+
+#signTap {
+	position: relative;
+	padding: 20px 0;
+	display: flex;
+	justify-content: space-around;
+}
+
+#signTap>li {
+	font-size: 18px;
+	text-align: center;
+	margin: 0 40px;
+	cursor: pointer;
+}
+
+.tap{
+	color: #bebebe;
+}
+
+.opacity {
+	color: #333;
+	font-weight: bold;
+}
+
+#signTap>li.on>.box1_1 {
+	width: 100%;
+	padding: 20px;
+	box-sizing: border-box;
+}
+#signTap>li>.box1_1 {
+	height: 0;
+	overflow: hidden;
+}
+.box1_1 {
+	width: 478px;
+	text-align: left;
+	margin: 0 auto;
+}
+
+/* form */
+.signin--wrap {
+	width: 490px;
+	padding-top: 64px;
+	margin: 10px auto;
+}
+
+.sigin--form {
+	background-color: #f7f7f7;
+	border-radius: 30px;
+	padding: 2rem;
+}
+
+.sign--btn {
+	width: 100%;
+	border: none;
+	border-radius: 10px;
+	padding: 0.5rem 0;
+	background-color: #9E61C1;
+	color: #fff;
+	margin-bottom: 1rem;
+}
+
+.sign--utils--wrap {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 2rem;
+}
+
+.sign--check {
+	display: flex;
+}
+
+label {
+	margin: 0;
+	padding-left: 4px;
+}
+
+.sign--menu {
+	display: flex;
+}
+
+.sign--menu a {
+	color: #727272;
+}
+
+.sign--menu a:hover {
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.sign--menu a::after {
+	content: "";
+	display: inline-block;
+	width: 1px;
+	height: 15px;
+	margin: 0 4px;
+	background-color: #727272;
+	vertical-align: middle;
+}
+
+.sign--menu a:nth-child(3)::after {
+	display: none;
+}
+
+/* social */
+.social--wrap {
+	text-align: center;
+	color: #707070;
+}
+
+.social--wrap p::before {
+	content: "";
+	display: inline-block;
+	width: 30%;
+	height: 1px;
+	margin-right: 5px;
+	background-color: #B9B9B9;
+	vertical-align: middle;
+}
+
+.social--wrap p::after {
+	content: "";
+	display: inline-block;
+	width: 30%;
+	height: 1px;
+	margin-left: 5px;
+	background-color: #B9B9B9;
+	vertical-align: middle;
+}
+
+.social--btn--wrap {
+	max-width: 160px;
+	margin: 0 auto;
+}
+
+.social--wrap a {
+	display: inline-block;
+}
+
+.social--btn {
+	max-width: 160px;
+	margin-bottom: 0.2rem;
+}
+
+.random-image {
+    max-width: 100%; /* 이미지가 부모 요소의 너비를 넘지 않도록 */
+    height: auto; /* 가로세로 비율 유지 */
+    display: block; /* 이미지 아래 공백 제거 */
+    margin: 0 auto; /* 이미지 중앙 정렬 */
+    border-radius: 8px; /* 이미지를 둥글게 */
+}
