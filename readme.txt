@@ -1,5 +1,5 @@
 ## 개발자 성장을 위한 첫걸음 PerfectFolio와 함께
-![perfectfolio](https://github.com/user-attachments/assets/6a6a07af-c003-42ac-b857-3fc59dbb666a)  
+![perfectfolio](https://github.com/user-attachments/assets/de7547c6-407e-46b7-9b79-7c6b49167b2c)
 
 ## ❓ PerfectFolio?  
 ## - **Perfect + Folio** 
@@ -187,7 +187,7 @@
 [notion Link](https://www.notion.so/PerfectFolio-Final-Project-f808a8e5ee894f2a99cd3a9e52c8b560)   
 
 ## ERD
-![Copy of perfect_folio](https://github.com/user-attachments/assets/2ce43afc-3f4a-474d-ae8e-6166d708d198)
+![Copy of perfect_folio](https://github.com/user-attachments/assets/decbe3a6-6cde-46a3-b5c0-3ce3d48d4296)
 
 - contributors
 - https://github.com/chorok917
