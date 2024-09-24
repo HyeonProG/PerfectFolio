@@ -184,7 +184,11 @@
 - **Key Parameters**: `model`, `prompt`, `max_tokens`, `temperature`
 - **Response**: Generated text or chat responses in JSON.
 
+## Notion
 [notion Link](https://www.notion.so/PerfectFolio-Final-Project-f808a8e5ee894f2a99cd3a9e52c8b560)   
+
+## PPT
+https://www.canva.com/design/DAGRXqGD298/mWN1a3DRbLS1ufaHjazzIA/view?utm_content=DAGRXqGD298&utm_campaign=designshare&utm_medium=link&utm_source=editor
 
 ## ERD
 ![Copy of perfect_folio](https://github.com/user-attachments/assets/decbe3a6-6cde-46a3-b5c0-3ce3d48d4296)
