@@ -153,7 +153,7 @@ toggleBtn.addEventListener('click', () => {
 
         /* 전체 사용자 수 */
         function getAllUsersCount() {
-            fetch('http://perfecfolio.jinnymo.com/admin/chartCountAllUsers')
+            fetch('/admin/chartCountAllUsers')
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('totalUsers').innerText = data;
@@ -167,7 +167,7 @@ toggleBtn.addEventListener('click', () => {
         
         /* 전체 구독자 수 */
         function countSubscribingUsers() {
-            fetch('http://perfecfolio.jinnymo.com/pay/countSubscribing')
+            fetch('/pay/countSubscribing')
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('subscribingUsers').innerText = data;
@@ -179,7 +179,7 @@ toggleBtn.addEventListener('click', () => {
         
         /* 전체 구독 해지자 수 */
         function countUnSubscribingUsers() {
-            fetch('http://perfecfolio.jinnymo.com/admin/chartCountUnsubscribe')
+            fetch('/admin/chartCountUnsubscribe')
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('unSubscribingUsers').innerText = data;
@@ -191,7 +191,7 @@ toggleBtn.addEventListener('click', () => {
         
         /* 전체 구독 결제 금액 */
         function chartSubscribingAmount() {
-            fetch('http://perfecfolio.jinnymo.com/admin/chartCountAllSubAmount')
+            fetch('/admin/chartCountAllSubAmount')
                 .then(response => response.json())
                 .then(data => {
                     const formattedAmount = formatKoreanWon(data);
@@ -204,7 +204,7 @@ toggleBtn.addEventListener('click', () => {
         
         /* 전체 구독 환불 금액 */
         function chartCountAllSubRefund() {
-            fetch('http://perfecfolio.jinnymo.com/admin/chartCountAllSubRefund')
+            fetch('/admin/chartCountAllSubRefund')
                 .then(response => response.json())
                 .then(data => {
                     const formattedAmount = formatKoreanWon(data);
@@ -220,7 +220,7 @@ toggleBtn.addEventListener('click', () => {
         /*** 광고 파트 ***/
         /* 전체 광고 본 횟수 */
         function countAllViewCount() {
-            fetch('http://perfecfolio.jinnymo.com/advertiser/view-count')
+            fetch('/advertiser/view-count')
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('viewCount').innerText = data;
@@ -232,7 +232,7 @@ toggleBtn.addEventListener('click', () => {
         
         /* 전체 광고 클릭 횟수 */
         function countAllClickCount() {
-            fetch('http://perfecfolio.jinnymo.com/advertiser/click-count')
+            fetch('/advertiser/click-count')
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('clickCount').innerText = data;
@@ -245,7 +245,7 @@ toggleBtn.addEventListener('click', () => {
         
         /* 전체 광고 결제 금액 */
         function countAllAdPayment() {
-            fetch('http://perfecfolio.jinnymo.com/advertiser/payment-count')
+            fetch('/advertiser/payment-count')
                 .then(response => response.json())
                 .then(data => {
                     const formattedAmount = formatKoreanWon(data);
@@ -258,7 +258,7 @@ toggleBtn.addEventListener('click', () => {
         
         /* 전체 광고 환불 금액 */
         function countAllAdRefundPayment() {
-            fetch('http://perfecfolio.jinnymo.com/advertiser/ad-refund-amount')
+            fetch('/advertiser/ad-refund-amount')
                 .then(response => response.json())
                 .then(data => {
                 const formattedAmount = formatKoreanWon(data);
@@ -279,7 +279,7 @@ toggleBtn.addEventListener('click', () => {
         
         /* 월별 사용자 수 */
         function getUserMonth() {
-            fetch('http://perfecfolio.jinnymo.com/admin/chartCountUserByMonth')
+            fetch('/admin/chartCountUserByMonth')
                 .then(response => response.json())
                 .then(data => {
                     const fullData = fillMissingMonths(data);
@@ -292,7 +292,7 @@ toggleBtn.addEventListener('click', () => {
         
         /* 남/여 사용자 수 */
         function getUserGender() {
-            fetch('http://perfecfolio.jinnymo.com/admin/chartCountUserByGender')
+            fetch('/admin/chartCountUserByGender')
                 .then(response => response.json())
                 .then(data => {
                     chartCountUserByGender(data);
@@ -304,7 +304,7 @@ toggleBtn.addEventListener('click', () => {
         
         /* 소셜 타입별 사용자 수 */
         function getUserSocialType() {
-			fetch('http://perfecfolio.jinnymo.com/admin/chartCountUserBySocialType')
+			fetch('/admin/chartCountUserBySocialType')
         		.then(response => response.json())
         		.then(data => {
         			chartCountUserBySocialType(data);
@@ -316,7 +316,7 @@ toggleBtn.addEventListener('click', () => {
         
         /* 연령별 사용자 수(네이버만) */
         function getUserAge() {
-			fetch('http://perfecfolio.jinnymo.com/admin/chartCountUserByAge')
+			fetch('/admin/chartCountUserByAge')
 				.then(response => response.json())
 				.then(data => {
 					chartCountUserByAge(data);
@@ -328,7 +328,7 @@ toggleBtn.addEventListener('click', () => {
         
         /* 탈퇴 사유 및 개수 조회 */
         function getWithdrawReason() {
-			fetch('http://perfecfolio.jinnymo.com/admin/chartCountWithdrawReason')
+			fetch('/admin/chartCountWithdrawReason')
 				.then(response => response.json())
 				.then(data => {
 					console.log(data);
@@ -850,7 +850,7 @@ toggleBtn.addEventListener('click', () => {
             }
 
             // fetch 요청
-            fetch('http://perfecfolio.jinnymo.com/admin/count-all/week?startDate=' + startOfWeek + '&endDate=' + endOfWeek)
+            fetch('/admin/count-all/week?startDate=' + startOfWeek + '&endDate=' + endOfWeek)
                 .then(response => response.json())
                 .then(data => {
     				// console.log(data[0]);

@@ -365,7 +365,7 @@
         }
 
         // fetch 요청
-        fetch('http://perfecfolio.jinnymo.com/admin/count-all/week?startDate=' + startOfWeek + '&endDate=' + endOfWeek)
+        fetch('/admin/count-all/week?startDate=' + startOfWeek + '&endDate=' + endOfWeek)
             .then(response => response.json())
             .then(data => {
 				// console.log(data[0]);

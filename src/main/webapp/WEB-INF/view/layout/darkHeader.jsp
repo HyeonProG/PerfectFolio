@@ -189,7 +189,7 @@
 
 	<script>
 		function openChatBot() {
-			window.open('http://perfecfolio.jinnymo.com/chat/chatPage', 'chatBotPopup',
+			window.open('/chat/chatPage', 'chatBotPopup',
 					'width=600,height=800,top=100,left=100,scrollbars=yes');
 		}
 

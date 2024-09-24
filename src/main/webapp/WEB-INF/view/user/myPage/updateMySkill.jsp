@@ -193,7 +193,7 @@
     console.log('userId', userId);
 
     function sendToServer(){
-        fetch('http://perfecfolio.jinnymo.com/analystic/create', {
+        fetch('/analystic/create', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -430,7 +430,7 @@
     };
 
     function getCategorys(){
-        fetch(`http://perfecfolio.jinnymo.com/data/mongo/category`)
+        fetch(`/data/mongo/category`)
             .then(response => {
                 console.log("response:", response);
                 return response.json();

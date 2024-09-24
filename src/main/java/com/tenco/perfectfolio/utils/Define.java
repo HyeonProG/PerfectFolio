@@ -4,7 +4,7 @@ public class Define {
 
 	//홈 url
 	//TODO - 서비스 배포시 변경 (ex. http://jinnymo.com)
-	public static final String HOME_URL = "http://perfecfolio.jinnymo.com";
+	public static final String HOME_URL = "";
 
 
 	// 이미지 관련

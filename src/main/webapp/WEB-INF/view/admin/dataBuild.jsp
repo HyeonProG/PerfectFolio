@@ -205,7 +205,7 @@
     function sendToServer(){
         //2번 div에 있는 숫자 가져오기
         let dataId = document.getElementById('dataIdArea').innerText;
-        fetch('http://perfecfolio.jinnymo.com/data/insert-data?id='+dataId, {
+        fetch('/data/insert-data?id='+dataId, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -248,7 +248,7 @@
         let tableName = selectElement.value;
         console.log("value:", value);
         console.log("tableName:", tableName);
-        fetch(`http://perfecfolio.jinnymo.com/data/insert-category?tableName=`+tableName+`&categoryName=`+value)
+        fetch(`/data/insert-category?tableName=`+tableName+`&categoryName=`+value)
             .then(response => {
                 console.log("response:", response);
                 return response.json();
@@ -272,7 +272,7 @@
     });
 
     function getCategorys(){
-        fetch(`http://perfecfolio.jinnymo.com/data/category/all`)
+        fetch(`/data/category/all`)
             .then(response => {
                 console.log("response:", response);
                 return response.json();
@@ -318,7 +318,7 @@
     }
 
     function getDataId(){
-        fetch('http://perfecfolio.jinnymo.com/data/get-data-id')
+        fetch('/data/get-data-id')
             .then(response => response.text())
             .then(dataId => {
                 MdataId = dataId;
@@ -331,7 +331,7 @@
             });
     }
     function getRndDataId(){
-        fetch('http://perfecfolio.jinnymo.com/data/get-rnd-data-id')
+        fetch('/data/get-rnd-data-id')
             .then(response => response.text())
             .then(dataId => {
                 MdataId = dataId;
@@ -345,7 +345,7 @@
     }
 
     function getData(dataId){
-        fetch('http://perfecfolio.jinnymo.com/data/get-data?id=' + dataId)
+        fetch('/data/get-data?id=' + dataId)
             .then(response => response.text())
             .then(data2 => {
                 document.getElementById('dataArea').innerText = data2;
@@ -469,7 +469,7 @@
     }
     
     function getCategorys(){
-        fetch(`http://perfecfolio.jinnymo.com/data/category/all`)
+        fetch(`/data/category/all`)
             .then(response => {
                 console.log("response:", response);
                 return response.json();

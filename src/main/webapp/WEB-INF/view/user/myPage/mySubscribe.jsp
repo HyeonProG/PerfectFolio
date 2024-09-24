@@ -105,7 +105,7 @@ function paymentKeyAlert2(){
 	    		cancelReason = result.value;
 				console.log('cancelReason : ',cancelReason);
 				
-				 fetch('http://perfecfolio.jinnymo.com/user/termination?cancelReason=' +cancelReason +'&userPk='+ ${principal.id}, {
+				 fetch('/user/termination?cancelReason=' +cancelReason +'&userPk='+ ${principal.id}, {
 				        method: 'POST',
 				        headers: {
 				          'Content-Type': 'application/json'
@@ -122,7 +122,7 @@ function paymentKeyAlert2(){
 <!-- 광고 이미지 -->
 <script>
     function fetchRandomImage() {
-        fetch('http:perfecfolio.jinnymo.com/advertiser/random-image')
+        fetch('/advertiser/random-image')
             .then(response => response.json())
             .then(data => {
             	console.log("서버 응답 데이터: " + data);
@@ -144,7 +144,7 @@ function paymentKeyAlert2(){
     }
 
     function incrementClickCount(imageUrl) {
-        fetch('http:perfecfolio.jinnymo.com/advertiser/increment-click', {
+        fetch('/advertiser/increment-click', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

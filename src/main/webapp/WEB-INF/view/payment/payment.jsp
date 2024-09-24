@@ -166,8 +166,8 @@ function basicPay(){
 
         tossPayments.requestBillingAuth("카드", {
             customerKey : customerKey, // 서버에서 전달받은 고객 키
-            successUrl: "http://perfecfolio.jinnymo.com/pay/success", // 성공 시 리디렉션 URL
-            failUrl: "http://perfecfolio.jinnymo.com/pay/fail" // 실패 시 리디렉션 URL
+            successUrl: "/pay/success", // 성공 시 리디렉션 URL
+            failUrl: "/pay/fail" // 실패 시 리디렉션 URL
         })
         .catch(function (error) {
 if (error.code === "USER_CANCEL") {
@@ -186,8 +186,8 @@ function premiumPay(){
 
         tossPayments.requestBillingAuth("카드", {
             customerKey : customerKey, // 서버에서 전달받은 고객 키
-            successUrl: "http://perfecfolio.jinnymo.com/pay/success2", // 성공 시 리디렉션 URL
-            failUrl: "http://perfecfolio.jinnymo.com/pay/fail" // 실패 시 리디렉션 URL
+            successUrl: "/pay/success2", // 성공 시 리디렉션 URL
+            failUrl: "/pay/fail" // 실패 시 리디렉션 URL
         })
         .catch(function (error) {
 if (error.code === "USER_CANCEL") {

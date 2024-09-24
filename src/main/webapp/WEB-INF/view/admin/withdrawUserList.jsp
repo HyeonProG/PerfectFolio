@@ -60,7 +60,7 @@
 	function fetchPage(page, size, searchType='') {
 
 		// 전체 리스트 조회 URL
-		let fetchUrl = `http:perfecfolio.jinnymo.com/admin/withdrawUserInfo?page=` + page + `&size=` + size;
+		let fetchUrl = `/admin/withdrawUserInfo?page=` + page + `&size=` + size;
 
 		if(searchType) {
 			fetchUrl +=`&searchType=` + encodeURIComponent(searchType);

@@ -109,7 +109,7 @@
 
 		/* 전체 사용자 수 */
 		function getAllUsersCount() {
-		    fetch('http://perfecfolio.jinnymo.com/admin/chartCountAllUsers')
+		    fetch('/admin/chartCountAllUsers')
 		        .then(response => response.json())
 		        .then(data => {
 		            document.getElementById('totalUsers').innerText = data;
@@ -121,7 +121,7 @@
 		
 		 /* 전체 구독자 수 */
         function countSubscribingUsers() {
-            fetch('http://perfecfolio.jinnymo.com/pay/countSubscribing')
+            fetch('/pay/countSubscribing')
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('subscribingUsers').innerText = data;
@@ -133,7 +133,7 @@
 		 
         /* 전체 구독 결제 금액 */
         function chartSubscribingAmount() {
-            fetch('http://perfecfolio.jinnymo.com/admin/chartCountAllSubAmount')
+            fetch('/admin/chartCountAllSubAmount')
                 .then(response => response.json())
                 .then(data => {
                     const formattedAmount = formatKoreanWon(data);
@@ -146,7 +146,7 @@
         
         /* 전체 구독 환불 금액 */
         function chartCountAllSubRefund() {
-            fetch('http://perfecfolio.jinnymo.com/admin/chartCountAllSubRefund')
+            fetch('/admin/chartCountAllSubRefund')
                 .then(response => response.json())
                 .then(data => {
                 	const formattedAmount = formatKoreanWon(data);
@@ -159,7 +159,7 @@
         
         /* 전체 광고 결제 금액 */
         function countAllAdPayment() {
-            fetch('http://perfecfolio.jinnymo.com/advertiser/payment-count')
+            fetch('/advertiser/payment-count')
                 .then(response => response.json())
                 .then(data => {
                     const formattedAmount = formatKoreanWon(data);
@@ -172,7 +172,7 @@
         
         /* 전체 광고 환불 금액 */
         function countAllAdRefundPayment() {
-            fetch('http://perfecfolio.jinnymo.com/advertiser/ad-refund-amount')
+            fetch('/advertiser/ad-refund-amount')
                 .then(response => response.json())
                 .then(data => {
                     const formattedAmount = formatKoreanWon(data);
@@ -191,7 +191,7 @@
         
         /* 월별 사용자 수 */
         function getUserMonth() {
-            fetch('http://perfecfolio.jinnymo.com/admin/chartCountUserByMonth')
+            fetch('/admin/chartCountUserByMonth')
                 .then(response => response.json())
                 .then(data => {
                     const fullData = fillMissingMonths(data);
@@ -204,7 +204,7 @@
         
         /* 탈퇴 사유 및 개수 조회 */
         function getWithdrawReason() {
-			fetch('http://perfecfolio.jinnymo.com/admin/chartCountWithdrawReason')
+			fetch('/admin/chartCountWithdrawReason')
 				.then(response => response.json())
 				.then(data => {
 					console.log(data);

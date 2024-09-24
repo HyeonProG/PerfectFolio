@@ -20,7 +20,7 @@
     });
 
     function  fetchRecommendations() {
-        fetch('http://perfecfolio.jinnymo.com/com/getSimilarityList')
+        fetch('/com/getSimilarityList')
             .then(response => handleResponse(response))
             .then(data => renderRecommendations(data))
             .catch(error => {

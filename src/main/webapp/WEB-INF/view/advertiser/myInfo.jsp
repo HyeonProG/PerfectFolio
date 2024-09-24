@@ -85,7 +85,7 @@
 <script>
     // 잔액 업데이트 함수
     function updateBalance() {
-        fetch('http:perfecfolio.jinnymo.com/advertiser/get-balance')
+        fetch('/advertiser/get-balance')
             .then(response => response.json())
             .then(data => {
                 if (data.balance) {

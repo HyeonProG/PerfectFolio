@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // 페이지를 불러오는 함수
 function fetchPage(page, size) {
-    let fetchUrl = `http:perfecfolio.jinnymo.com/advertiser/application-list/data?page=` + page + `&size=` + size;
+    let fetchUrl = `/advertiser/application-list/data?page=` + page + `&size=` + size;
 
     fetch(fetchUrl)
         .then(response => response.json())
@@ -243,7 +243,7 @@ function renderPagination(totalCount, currentPage, pageSize, totalPages) {
 // 광고 신청을 삭제하는 함수
 function deleteApplication(id) {
     if (confirm("정말로 삭제하시겠습니까?")) {
-        fetch('http:perfecfolio.jinnymo.com/advertiser/application-list/delete/' + id, {
+        fetch('/advertiser/application-list/delete/' + id, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'

@@ -79,7 +79,7 @@
 		const userId = document.getElementById('userId').value;
 		console.log('userId : ', userId);
 
-		fetch(`http://perfecfolio.jinnymo.com/advertiser/checkId?userId=` + userId)
+		fetch(`/advertiser/checkId?userId=` + userId)
 				.then(response => {
 					if (!response.ok) {
 						return response.json().then(data => {

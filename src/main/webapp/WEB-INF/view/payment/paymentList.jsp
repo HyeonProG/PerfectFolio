@@ -298,7 +298,7 @@ function paymentKeyAlert1() {
 		    		cancelReason = result.value;
 					console.log('cancelReason : ',cancelReason);
 					
-					 fetch('http://perfecfolio.jinnymo.com/refund?paymentKey=' +paymentKey+ '&cancelReason=' +cancelReason +"&payPk=" +payPk, {
+					 fetch('/refund?paymentKey=' +paymentKey+ '&cancelReason=' +cancelReason +"&payPk=" +payPk, {
 					        method: 'POST',
 					        headers: {
 					          'Content-Type': 'application/json'

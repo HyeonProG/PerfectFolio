@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
    function fetchPage(page, size) {
       
    	// 전체 리스트 조회 시 URL
-   	let fetchUrl = `http:perfecfolio.jinnymo.com/advertiser/refundList?page=` + page + `&size=` + size;
+   	let fetchUrl = `/advertiser/refundList?page=` + page + `&size=` + size;
 
        fetch(fetchUrl)
            .then(response => response.json())
@@ -227,7 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	                console.log(treatment);
 	                paymentKeyAlert2(treatment);
 	            } else {
-	                fetch('http://perfecfolio.jinnymo.com/advertiser/treatment?treatment=' + treatment + '&id=' + id, {
+	                fetch('/advertiser/treatment?treatment=' + treatment + '&id=' + id, {
 	                    method: 'POST',
 	                    headers: {
 	                        'Content-Type': 'application/json'
@@ -260,7 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		    		reject = result.value;
 					console.log('reject : ',reject);
 					
-					 fetch('http://perfecfolio.jinnymo.com/advertiser/treatment?treatment=' +treatment+'&id='+id+"&reject="+reject, {
+					 fetch('/advertiser/treatment?treatment=' +treatment+'&id='+id+"&reject="+reject, {
 					        method: 'POST',
 					        headers: {
 					          'Content-Type': 'application/json'

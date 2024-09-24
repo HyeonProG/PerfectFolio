@@ -3,7 +3,7 @@
 <!-- header.jsp  -->
 <%@ include file="/WEB-INF/view/layout/lightHeader.jsp"%>
 <!-- css -->
-<link rel="stylesheet" href="/css/myInfo.css">
+<link rel="stylesheet" href="/css/myInfoAd.css">
 <link rel="stylesheet" href="/css/adButtonStyle.css">
 <style>
 .container {
@@ -12,16 +12,15 @@
     justify-content: space-between;
 }
 
-.inner--personal {
-	width: 50vh;
-}
-
 .button {
     flex: 0 1 48%; /* 48% 크기로 설정하여 두 개씩 나란히 배치 */
     margin-bottom: 10px; /* 버튼들 간의 세로 간격 설정 */
 }
 .user--section{
 	width:100vh;
+}
+.inner--personal {
+    width: 50vh;
 }
 </style>
 

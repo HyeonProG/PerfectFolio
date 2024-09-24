@@ -85,7 +85,7 @@ h1 {
         const email = document.getElementById('userEmail').value;
         console.log('Email : ' + email);
 
-        fetch('http://perfecfolio.jinnymo.com/send-mail/findUserIdByEmail?email=' + email)
+        fetch('/send-mail/findUserIdByEmail?email=' + email)
             .then(response => {
                 if (!response.ok) {
                     return response.json().then(data => {

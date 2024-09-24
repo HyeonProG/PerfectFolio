@@ -18,11 +18,11 @@
         <h3>안녕하세요. <span th:text="${userName}"></span>님</h3>
         <p><span th:text="${companyName}"></span>에서 귀하께 입사 제안을 안내드립니다.</p>
 
-        <a th:href="@{'http://perfecfolio.jinnymo.com/company/accept?userId=' + ${userId} + '&' + 'comId=' + ${comId}}"
+        <a th:href="@{'/company/accept?userId=' + ${userId} + '&' + 'comId=' + ${comId}}"
            style="display: inline-block; padding: 10px 20px; font-size: 16px; color: white; background-color: #BC91E6; text-align: center; text-decoration: none; border-radius: 5px; margin: 20px 0; cursor: pointer;">
             수락
         </a>
-        <a th:href="@{'http://perfecfolio.jinnymo.com/company/reject?userId=' + ${userId} + '&' + 'comId=' + ${comId}}"
+        <a th:href="@{'/company/reject?userId=' + ${userId} + '&' + 'comId=' + ${comId}}"
            style="display: inline-block; padding: 10px 20px; font-size: 16px; color: white; background-color: #ff5e5e; text-align: center; text-decoration: none; border-radius: 5px; margin: 20px 0; cursor: pointer;">
             거절
         </a>

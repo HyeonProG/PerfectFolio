@@ -66,7 +66,7 @@
 <script>
     function sendValidateCode() {
         const email = document.getElementById('email').value;
-        fetch('http://perfecfolio.jinnymo.com/send-mail/email?email=' + email)
+        fetch('/send-mail/email?email=' + email)
             .then(response => {
                 if (!response.ok) {
                     return response.json().then(data => {
@@ -90,7 +90,7 @@
     }
 
     function checkValidate() {
-        fetch('http://perfecfolio.jinnymo.com/send-mail/checkValidate')
+        fetch('/send-mail/checkValidate')
             .then(response => {
                 if (!response.ok) {
                     return response.json().then(data => {

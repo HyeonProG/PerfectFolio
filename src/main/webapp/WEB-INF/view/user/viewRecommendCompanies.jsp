@@ -297,7 +297,7 @@
         const similarityOption = document.getElementById('fix-similarity')
             ? document.getElementById('fix-similarity').value
             : defaultSimilarity;
-        const url = 'http://perfecfolio.jinnymo.com/user/getRecommend?dateOption=' + dateOption + '&qualificationOption=' + qualificationOption + '&similarityOption=' + similarityOption;
+        const url = '/user/getRecommend?dateOption=' + dateOption + '&qualificationOption=' + qualificationOption + '&similarityOption=' + similarityOption;
         console.log('url', url)
         fetch(url)
             .then(response => handleResponse(response))
@@ -385,7 +385,7 @@
         const inlineInfo = document.createElement('div');
         inlineInfo.className = 'inline-info';
         if (item.jobUrl === null) {
-            const paymentUrl = 'http://perfecfolio.jinnymo.com/pay/subscribe';
+            const paymentUrl = '/pay/subscribe';
             const hiddenUrlElement = createPaymentLinkElement(paymentUrl)
             hiddenUrlElement.addEventListener('click', function (event) {
                 handleLinkClick(event, paymentUrl);  // URL을 핸들러로 전달

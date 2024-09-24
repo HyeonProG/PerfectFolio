@@ -72,7 +72,7 @@
 
 	// 잔액 업데이트
 	function updateBalance() {
-		fetch('http:perfecfolio.jinnymo.com/advertiser/get-balance')
+		fetch('/advertiser/get-balance')
 			.then(response => response.json())
 			.then(data => {
 				if (data.balance) {
@@ -88,7 +88,4 @@
 </script>
 
 <%@ include file="/WEB-INF/view/layout/lightFooter.jsp"%>
-<<<<<<< HEAD
 
-=======
->>>>>>> dev

@@ -342,7 +342,7 @@
     }
 
     function sendToServer() {
-        fetch('http://perfecfolio.jinnymo.com/analystic/create', {
+        fetch('/analystic/create', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -402,7 +402,7 @@
             return;
         }
 
-        fetch(`http://perfecfolio.jinnymo.com/data/mongo/category`)
+        fetch(`/data/mongo/category`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error("Network response was not ok");
