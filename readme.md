@@ -83,8 +83,6 @@
 ||https://developers.naver.com/main/
 ||https://cloud.google.com/identity-platform/docs/web/google?hl=ko
 ||[소셜 결제 API]
-||https://developers.kakao.com/
-||https://developers.pay.naver.com/
 ||https://developers.tosspayments.com/
 ||[SMTP API]
 ||https://developers.google.com/gmail/api/guides/sending?hl=ko
@@ -127,24 +125,6 @@
 ---
 
 ### **[ Payment APIs ]**
-
-**Kakao Payment API**
-
-- **Purpose**: Process payments via KakaoPay.
-- **Endpoints**:
-    - Ready: `https://kapi.kakao.com/v1/payment/ready`
-    - Approve: `https://kapi.kakao.com/v1/payment/approve`
-    - Cancel: `https://kapi.kakao.com/v1/payment/cancel`
-- **Response**: Payment status, amount, and ID in JSON.
-
-**Naver Payment API**
-
-- **Purpose**: Process payments via Naver Pay.
-- **Endpoints**:
-    - Ready: `https://api.pay.naver.com/v1/payments/prepared`
-    - Approve: `https://api.pay.naver.com/v1/payments/approve`
-    - Cancel: `https://api.pay.naver.com/v1/payments/cancel`
-- **Response**: Payment status, amount, and ID in JSON.
 
 **Toss Payment API**
 
