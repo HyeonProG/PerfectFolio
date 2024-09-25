@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
    function fetchPage(page, size, searchContents = '') {
       
    	// 전체 리스트 조회 시 URL
-   	let fetchUrl = `http:perfecfolio.jinnymo.com/pay/searchPaymentList?type=paymentList&page=` + page + `&size=` + size;
+   	let fetchUrl = `http:/pay/searchPaymentList?type=paymentList&page=` + page + `&size=` + size;
        
        // 검색 시 URL
        if (searchContents) {

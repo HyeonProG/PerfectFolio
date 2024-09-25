@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
    function fetchPage(page, size, categories = '', searchRange = '', searchContents = '') {
       
    	// 전체 리스트 조회 시 URL
-   	let fetchUrl = `http:perfecfolio.jinnymo.com/board/list?page=` + page + `&size=` + size;
+   	let fetchUrl = `http:/board/list?page=` + page + `&size=` + size;
        
        // 검색 시 URL
        if (categories) {
@@ -444,7 +444,7 @@ $(function(){
 <!-- 광고 이미지 -->
 <script>
     function fetchRandomImage() {
-        fetch('http:perfecfolio.jinnymo.com/advertiser/random-image')
+        fetch('http:/advertiser/random-image')
             .then(response => response.json())
             .then(data => {
             	console.log("서버 응답 데이터: " + data);
@@ -466,7 +466,7 @@ $(function(){
     }
 
     function incrementClickCount(imageUrl) {
-        fetch('http:perfecfolio.jinnymo.com/advertiser/increment-click', {
+        fetch('http:/advertiser/increment-click', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

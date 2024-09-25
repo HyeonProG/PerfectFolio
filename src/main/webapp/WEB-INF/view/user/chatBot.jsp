@@ -88,7 +88,7 @@
         let webSocket;
 
         function initWebSocket() {
-            webSocket = new WebSocket('ws://perfecfolio.jinnymo.com/ws/chat');
+            webSocket = new WebSocket('ws:///ws/chat');
 
             webSocket.onmessage = function(event) {
                 // JSON 형태의 메시지 처리

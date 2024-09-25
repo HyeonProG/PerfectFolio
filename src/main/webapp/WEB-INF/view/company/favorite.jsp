@@ -31,7 +31,7 @@
 
 // 서버로부터 즐겨찾기 유저 목록을 가져오는 함수
         function fetchFavoriteUserList() {
-            fetch('http:perfecfolio.jinnymo.com/company/favoriteList', {
+            fetch('http:/company/favoriteList', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -124,7 +124,7 @@
         function sendFavoriteToServer(userId, isFavorite) {
             const companyId = document.getElementById("companyId").value;
 
-            fetch('http:perfecfolio.jinnymo.com/company/favorite', {
+            fetch('http:/company/favorite', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -152,7 +152,7 @@
         function deleteFavorite(userId) {
             const companyId = document.getElementById("companyId").value;
 
-            fetch('http:perfecfolio.jinnymo.com/company/favorite/delete', {
+            fetch('http:/company/favorite/delete', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -172,7 +172,7 @@
         function sendProposal(userId) {
             // 서버로 입사제안서 전송 (예시로 POST 요청 사용)
             if(confirm("정말 입사제안서를 보내시겠습니까? 수량이 소모됩니다.")) {
-                fetch('http:perfecfolio.jinnymo.com/company/proposal', {
+                fetch('http:/company/proposal', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

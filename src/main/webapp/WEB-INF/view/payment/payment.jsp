@@ -220,7 +220,7 @@ if (error.code === "USER_CANCEL") {
 <!-- 광고 이미지 -->
 <script>
     function fetchRandomImage() {
-        fetch('http:perfecfolio.jinnymo.com/advertiser/random-image')
+        fetch('http:/advertiser/random-image')
             .then(response => response.json())
             .then(data => {
             	console.log("서버 응답 데이터: " + data);
@@ -242,7 +242,7 @@ if (error.code === "USER_CANCEL") {
     }
 
     function incrementClickCount(imageUrl) {
-        fetch('http:perfecfolio.jinnymo.com/advertiser/increment-click', {
+        fetch('http:/advertiser/increment-click', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
