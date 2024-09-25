@@ -83,8 +83,6 @@
 ||https://developers.naver.com/main/
 ||https://cloud.google.com/identity-platform/docs/web/google?hl=ko
 ||[소셜 결제 API]
-||https://developers.kakao.com/
-||https://developers.pay.naver.com/
 ||https://developers.tosspayments.com/
 ||[SMTP API]
 ||https://developers.google.com/gmail/api/guides/sending?hl=ko
@@ -128,24 +126,6 @@
 
 ### **[ Payment APIs ]**
 
-**Kakao Payment API**
-
-- **Purpose**: Process payments via KakaoPay.
-- **Endpoints**:
-    - Ready: `https://kapi.kakao.com/v1/payment/ready`
-    - Approve: `https://kapi.kakao.com/v1/payment/approve`
-    - Cancel: `https://kapi.kakao.com/v1/payment/cancel`
-- **Response**: Payment status, amount, and ID in JSON.
-
-**Naver Payment API**
-
-- **Purpose**: Process payments via Naver Pay.
-- **Endpoints**:
-    - Ready: `https://api.pay.naver.com/v1/payments/prepared`
-    - Approve: `https://api.pay.naver.com/v1/payments/approve`
-    - Cancel: `https://api.pay.naver.com/v1/payments/cancel`
-- **Response**: Payment status, amount, and ID in JSON.
-
 **Toss Payment API**
 
 - **Purpose**: Process payments via Toss.
@@ -184,7 +164,11 @@
 - **Key Parameters**: `model`, `prompt`, `max_tokens`, `temperature`
 - **Response**: Generated text or chat responses in JSON.
 
+## Notion
 [notion Link](https://www.notion.so/PerfectFolio-Final-Project-f808a8e5ee894f2a99cd3a9e52c8b560)   
+
+## PPT
+https://www.canva.com/design/DAGRXqGD298/mWN1a3DRbLS1ufaHjazzIA/view?utm_content=DAGRXqGD298&utm_campaign=designshare&utm_medium=link&utm_source=editor
 
 ## ERD
 ![Copy of perfect_folio](https://github.com/user-attachments/assets/decbe3a6-6cde-46a3-b5c0-3ce3d48d4296)
