@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.21, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.38, for macos14 (arm64)
 --
 -- Host: jayden-test-db.cx6kukwuo709.ap-northeast-2.rds.amazonaws.com    Database: perfecfolio
 -- ------------------------------------------------------
@@ -37,7 +37,7 @@ CREATE TABLE `co_proposal` (
   `proposal_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `status` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,7 +46,7 @@ CREATE TABLE `co_proposal` (
 
 LOCK TABLES `co_proposal` WRITE;
 /*!40000 ALTER TABLE `co_proposal` DISABLE KEYS */;
-INSERT INTO `co_proposal` VALUES (16,45,10,'2024-09-21 08:10:53','수락'),(18,45,2,'2024-09-21 08:12:29','대기'),(19,45,7,'2024-09-23 13:02:20','대기');
+INSERT INTO `co_proposal` VALUES (16,45,10,'2024-09-21 08:10:53','수락'),(18,45,2,'2024-09-21 08:12:29','대기'),(19,45,7,'2024-09-23 13:02:20','대기'),(20,45,3,'2024-09-26 08:24:15','대기');
 /*!40000 ALTER TABLE `co_proposal` ENABLE KEYS */;
 UNLOCK TABLES;
 SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
@@ -60,4 +60,4 @@ SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-25  9:58:48
+-- Dump completed on 2024-09-30 15:57:04

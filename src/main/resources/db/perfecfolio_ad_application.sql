@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.21, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.38, for macos14 (arm64)
 --
 -- Host: jayden-test-db.cx6kukwuo709.ap-northeast-2.rds.amazonaws.com    Database: perfecfolio
 -- ------------------------------------------------------
@@ -43,7 +43,7 @@ CREATE TABLE `ad_application` (
   `state` enum('대기','승인','중지','거절','취소') DEFAULT '대기',
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -52,7 +52,7 @@ CREATE TABLE `ad_application` (
 
 LOCK TABLES `ad_application` WRITE;
 /*!40000 ALTER TABLE `ad_application` DISABLE KEYS */;
-INSERT INTO `ad_application` VALUES (30,1,'bootcampkorea','bootcampkorea',147,30,'https://www.bootcampkorea.com/','bootcampkorea.png','1a18f127-0452-4aea-b88c-1cd5daa79feb_bootcampkorea.png','승인','2024-09-23 01:03:29'),(31,1,'boottent','boottent',22,7,'https://boottent.com/','boottent.png','51bf659a-7b7e-4c95-b6e8-0c9dda665219_boottent.png','중지','2024-09-23 01:03:48'),(32,1,'elice','elice',159,22,'https://elice.training/','elice.png','a9ec1b34-2091-440e-8af8-2495679754d8_elice.png','승인','2024-09-23 01:04:05'),(33,1,'naebaecamp','naebaecamp',198,43,'https://nbcamp.spartacodingclub.kr/','naebaecamp.png','1b2d1a63-9c1a-4f7e-bf7e-4e042d03ff23_naebaecamp.png','승인','2024-09-23 01:04:25'),(34,1,'boottent2','boottent2',115,33,'https://boottent.com/','boottent2.png','fa84378d-7765-4339-aa2d-ffef9b68dab9_boottent2.png','승인','2024-09-23 01:04:41');
+INSERT INTO `ad_application` VALUES (31,1,'boottent','boottent',30,7,'https://boottent.com/','boottent.png','51bf659a-7b7e-4c95-b6e8-0c9dda665219_boottent.png','승인','2024-09-23 01:03:48'),(32,1,'elice','elice',322,23,'https://elice.training/','elice.png','a9ec1b34-2091-440e-8af8-2495679754d8_elice.png','승인','2024-09-23 01:04:05'),(33,1,'naebaecamp','naebaecamp',351,43,'https://nbcamp.spartacodingclub.kr/','naebaecamp.png','1b2d1a63-9c1a-4f7e-bf7e-4e042d03ff23_naebaecamp.png','승인','2024-09-23 01:04:25'),(34,1,'boottent2','boottent2',131,36,'https://boottent.com/','boottent2.png','fa84378d-7765-4339-aa2d-ffef9b68dab9_boottent2.png','승인','2024-09-23 01:04:41'),(36,1,'bootcamp','bootcamp',0,0,'https://www.naver.com','fa84378d-7765-4339-aa2d-ffef9b68dab9_boottent2.png','b2bba8d2-1b9e-4f25-9bac-f4f5b202c5ed_fa84378d-7765-4339-aa2d-ffef9b68dab9_boottent2.png','중지','2024-09-25 03:18:08'),(37,1,'adimage','adimage',4,1,'https://www.naver.com','fa84378d-7765-4339-aa2d-ffef9b68dab9_boottent2.png','94b470f1-7780-4f55-a69b-ef406e77d9ae_fa84378d-7765-4339-aa2d-ffef9b68dab9_boottent2.png','승인','2024-09-25 03:31:26'),(38,5,'adimage','adimage',50,2,'https://www.naver.com','a9ec1b34-2091-440e-8af8-2495679754d8_elice.png','4d10a7b6-e4c8-4032-b82a-b92cd6e2a153_a9ec1b34-2091-440e-8af8-2495679754d8_elice.png','승인','2024-09-25 08:29:58');
 /*!40000 ALTER TABLE `ad_application` ENABLE KEYS */;
 UNLOCK TABLES;
 SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
@@ -66,4 +66,4 @@ SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-25  9:58:46
+-- Dump completed on 2024-09-30 15:57:18

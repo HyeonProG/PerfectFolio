@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.21, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.38, for macos14 (arm64)
 --
 -- Host: jayden-test-db.cx6kukwuo709.ap-northeast-2.rds.amazonaws.com    Database: perfecfolio
 -- ------------------------------------------------------
@@ -48,7 +48,7 @@ CREATE TABLE `co_goods_tb` (
 
 LOCK TABLES `co_goods_tb` WRITE;
 /*!40000 ALTER TABLE `co_goods_tb` DISABLE KEYS */;
-INSERT INTO `co_goods_tb` VALUES (1,45,9,'2024-09-23 13:02:20');
+INSERT INTO `co_goods_tb` VALUES (1,45,208,'2024-09-26 08:24:10');
 /*!40000 ALTER TABLE `co_goods_tb` ENABLE KEYS */;
 UNLOCK TABLES;
 SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
@@ -62,4 +62,4 @@ SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-25  9:58:37
+-- Dump completed on 2024-09-30 15:57:04

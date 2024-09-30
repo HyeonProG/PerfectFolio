@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.21, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.38, for macos14 (arm64)
 --
 -- Host: jayden-test-db.cx6kukwuo709.ap-northeast-2.rds.amazonaws.com    Database: perfecfolio
 -- ------------------------------------------------------
@@ -39,7 +39,7 @@ CREATE TABLE `co_payment_history_tb` (
   PRIMARY KEY (`id`),
   KEY `fk_user_id_payment` (`user_id`),
   CONSTRAINT `fk_user_id_payment` FOREIGN KEY (`user_id`) REFERENCES `user_tb` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -48,7 +48,7 @@ CREATE TABLE `co_payment_history_tb` (
 
 LOCK TABLES `co_payment_history_tb` WRITE;
 /*!40000 ALTER TABLE `co_payment_history_tb` DISABLE KEYS */;
-INSERT INTO `co_payment_history_tb` VALUES (1,45,'입사 지원서 100개',89900,'2024-09-19 15:58:52'),(2,45,'입사 지원서 10개',9900,'2024-09-19 15:59:20'),(3,45,'입사 지원서 10개',9900,'2024-09-20 11:53:34'),(4,45,'입사 지원서 10개',9900,'2024-09-22 03:59:56');
+INSERT INTO `co_payment_history_tb` VALUES (6,45,'입사 지원서 100개',89900,'2024-09-26 07:43:11'),(7,45,'입사 지원서 10개',9900,'2024-09-26 08:00:41'),(8,45,'입사 지원서 10개',9900,'2024-09-26 08:01:33'),(9,45,'입사 지원서 10개',9900,'2024-09-26 08:03:07'),(10,45,'입사 지원서 10개',9900,'2024-09-26 08:05:40'),(11,45,'입사 지원서 10개',9900,'2024-09-26 08:06:42'),(12,45,'입사 지원서 10개',9900,'2024-09-26 08:14:30'),(13,45,'입사 지원서 30개',28900,'2024-09-26 08:22:31');
 /*!40000 ALTER TABLE `co_payment_history_tb` ENABLE KEYS */;
 UNLOCK TABLES;
 SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
@@ -62,4 +62,4 @@ SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-25  9:58:39
+-- Dump completed on 2024-09-30 15:57:17

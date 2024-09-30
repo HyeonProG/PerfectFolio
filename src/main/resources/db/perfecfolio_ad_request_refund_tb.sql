@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.21, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.38, for macos14 (arm64)
 --
 -- Host: jayden-test-db.cx6kukwuo709.ap-northeast-2.rds.amazonaws.com    Database: perfecfolio
 -- ------------------------------------------------------
@@ -50,7 +50,7 @@ CREATE TABLE `ad_request_refund_tb` (
 
 LOCK TABLES `ad_request_refund_tb` WRITE;
 /*!40000 ALTER TABLE `ad_request_refund_tb` DISABLE KEYS */;
-INSERT INTO `ad_request_refund_tb` VALUES (1,'2024년 9월 19일','5만원','2만원','결제 실수',1,'2024-09-19 08:18:44','승인',NULL),(2,'2024년 9월 11일','3만원','1만원','결제 실수',1,'2024-09-19 08:18:50','반려','실수'),(3,'2024년3월 2일','7만원','4만원','단순변심',1,'2024-09-19 15:40:15','승인',NULL),(4,'2024-09-13 15:15','30000','10000','단순 변심',1,'2024-09-20 03:17:36','승인',NULL),(5,'2024-09-20','10000','10000','결제 실수',1,'2024-09-20 03:35:38','대기중',NULL),(6,'2024-20-09 12:34','10000','10000','단순 변심',1,'2024-09-20 05:23:31','대기중',NULL),(7,'2024-20-09 12:34','10000','10000','단순 변심',1,'2024-09-20 05:25:51','대기중',NULL);
+INSERT INTO `ad_request_refund_tb` VALUES (1,'2024년 9월 19일','5만원','2만원','결제 실수',1,'2024-09-19 08:18:44','승인',NULL),(2,'2024년 9월 11일','3만원','1만원','결제 실수',1,'2024-09-19 08:18:50','승인',NULL),(3,'2024년3월 2일','7만원','4만원','단순변심',1,'2024-09-19 15:40:15','승인',NULL),(4,'2024-09-13 15:15','30000','10000','단순 변심',1,'2024-09-20 03:17:36','승인',NULL),(5,'2024-09-20','10000','10000','결제 실수',1,'2024-09-20 03:35:38','대기중',NULL),(6,'2024-20-09 12:34','10000','10000','단순 변심',1,'2024-09-20 05:23:31','대기중',NULL),(7,'2024-20-09 12:34','10000','10000','단순 변심',1,'2024-09-20 05:25:51','대기중',NULL);
 /*!40000 ALTER TABLE `ad_request_refund_tb` ENABLE KEYS */;
 UNLOCK TABLES;
 SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
@@ -64,4 +64,4 @@ SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-25  9:58:39
+-- Dump completed on 2024-09-30 15:57:08

@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.21, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.38, for macos14 (arm64)
 --
 -- Host: jayden-test-db.cx6kukwuo709.ap-northeast-2.rds.amazonaws.com    Database: perfecfolio
 -- ------------------------------------------------------
@@ -36,7 +36,7 @@ CREATE TABLE `co_bookmark` (
   `user_id` bigint NOT NULL,
   `bookmark_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,7 +45,7 @@ CREATE TABLE `co_bookmark` (
 
 LOCK TABLES `co_bookmark` WRITE;
 /*!40000 ALTER TABLE `co_bookmark` DISABLE KEYS */;
-INSERT INTO `co_bookmark` VALUES (1,40,27,'2024-09-15 05:59:57'),(2,41,27,'2024-09-15 06:03:11'),(37,45,2,'2024-09-21 19:20:59'),(38,45,1,'2024-09-22 15:47:30'),(39,45,3,'2024-09-23 02:02:03');
+INSERT INTO `co_bookmark` VALUES (1,40,27,'2024-09-15 05:59:57'),(2,41,27,'2024-09-15 06:03:11');
 /*!40000 ALTER TABLE `co_bookmark` ENABLE KEYS */;
 UNLOCK TABLES;
 SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
@@ -59,4 +59,4 @@ SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-25  9:58:37
+-- Dump completed on 2024-09-30 15:57:10

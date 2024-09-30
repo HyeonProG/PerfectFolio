@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.21, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.38, for macos14 (arm64)
 --
 -- Host: jayden-test-db.cx6kukwuo709.ap-northeast-2.rds.amazonaws.com    Database: perfecfolio
 -- ------------------------------------------------------
@@ -40,7 +40,7 @@ CREATE TABLE `advertiser` (
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -49,7 +49,7 @@ CREATE TABLE `advertiser` (
 
 LOCK TABLES `advertiser` WRITE;
 /*!40000 ALTER TABLE `advertiser` DISABLE KEYS */;
-INSERT INTO `advertiser` VALUES (1,'test','test','$2a$10$WGBnUdhuuKg5VtyfuWRmIuwJ8Fjp7Bk1B92HydPKzAWfU6W45yi1W','010-1234-1234',119100,'2024-09-11 03:46:57'),(3,'naver','네이버','$2a$10$ssFvBZLbOPYRG0MQP9WsPuWDlGuETGfDBrrnnWROIOWPIjl0Nt0Vi','010-1234-4567',10000,'2024-09-15 14:32:45'),(4,'advertiser','advertiser','$2a$10$k7s/G5sMq1tEecWnMIksE.4y51a1NVugBNP/f4/frLK4SC50wx.8u','010-1111-2222',10000,'2024-09-20 08:09:21');
+INSERT INTO `advertiser` VALUES (1,'test','test','$2a$10$WGBnUdhuuKg5VtyfuWRmIuwJ8Fjp7Bk1B92HydPKzAWfU6W45yi1W','010-1234-1234',284600,'2024-09-11 03:46:57'),(3,'naver','네이버','$2a$10$ssFvBZLbOPYRG0MQP9WsPuWDlGuETGfDBrrnnWROIOWPIjl0Nt0Vi','010-1234-4567',10000,'2024-09-15 14:32:45'),(4,'advertiser','advertiser','$2a$10$k7s/G5sMq1tEecWnMIksE.4y51a1NVugBNP/f4/frLK4SC50wx.8u','010-1111-2222',10000,'2024-09-20 08:09:21'),(5,'advertisers','advertisers','$2a$10$AFcrwCPhYIEVaw6/ZkbKpOKWw7w4Dg2qTnW7PZpKkMD2EgCEYlVnu','010-1234-1234',94900,'2024-09-25 08:28:54');
 /*!40000 ALTER TABLE `advertiser` ENABLE KEYS */;
 UNLOCK TABLES;
 SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
@@ -63,4 +63,4 @@ SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-25  9:58:36
+-- Dump completed on 2024-09-30 15:57:17
