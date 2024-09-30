@@ -106,7 +106,7 @@
 <!-- 광고 이미지 -->
 <script>
     function fetchRandomImage() {
-        fetch('/advertiser/random-image')
+        fetch('http://localhost:8080/advertiser/random-image')
             .then(response => response.json())
             .then(data => {
             	console.log("서버 응답 데이터: " + data);
@@ -128,7 +128,7 @@
     }
 
     function incrementClickCount(imageUrl) {
-        fetch('/advertiser/increment-click', {
+        fetch('http://localhost:8080/advertiser/increment-click', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

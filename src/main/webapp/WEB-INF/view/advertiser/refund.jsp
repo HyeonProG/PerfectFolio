@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
    function fetchPage(page, size) {
       
    	// 전체 리스트 조회 시 URL
-   	let fetchUrl = `/advertiser/refundList?page=` + page + `&size=` + size;
+   	let fetchUrl = `http://localhost:8080/advertiser/refundList?page=` + page + `&size=` + size;
 
        fetch(fetchUrl)
            .then(response => response.json())
@@ -260,7 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		    		reject = result.value;
 					console.log('reject : ',reject);
 					
-					 fetch('/advertiser/treatment?treatment=' +treatment+'&id='+id+"&reject="+reject, {
+					 fetch('http://localhost:8080/advertiser/treatment?treatment=' +treatment+'&id='+id+"&reject="+reject, {
 					        method: 'POST',
 					        headers: {
 					          'Content-Type': 'application/json'

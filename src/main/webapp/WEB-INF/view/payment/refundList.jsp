@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
    function fetchPage(page, size, searchRange = '', searchContents = '') {
       
    	// 전체 리스트 조회 시 URL
-   	let fetchUrl = `http:/pay/searchPaymentList?type=refundList&page=` + page + `&size=` + size;
+   	let fetchUrl = `http://localhost:8080/pay/searchPaymentList?type=refundList&page=` + page + `&size=` + size;
        
        // 검색 시 URL
         if (searchRange) {

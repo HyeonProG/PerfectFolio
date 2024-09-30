@@ -205,7 +205,7 @@
     function sendToServer(){
         //2번 div에 있는 숫자 가져오기
         let dataId = document.getElementById('dataIdArea').innerText;
-        fetch('/data/insert-data?id='+dataId, {
+        fetch('http://localhost:8080/data/insert-data?id='+dataId, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -248,7 +248,7 @@
         let tableName = selectElement.value;
         console.log("value:", value);
         console.log("tableName:", tableName);
-        fetch(`/data/insert-category?tableName=`+tableName+`&categoryName=`+value)
+        fetch(`http://localhost:8080/data/insert-category?tableName=`+tableName+`&categoryName=`+value)
             .then(response => {
                 console.log("response:", response);
                 return response.json();
@@ -272,7 +272,7 @@
     });
 
     function getCategorys(){
-        fetch(`/data/category/all`)
+        fetch(`http://localhost:8080/data/category/all`)
             .then(response => {
                 console.log("response:", response);
                 return response.json();
@@ -318,7 +318,7 @@
     }
 
     function getDataId(){
-        fetch('/data/get-data-id')
+        fetch('http://localhost:8080/data/get-data-id')
             .then(response => response.text())
             .then(dataId => {
                 MdataId = dataId;
@@ -331,7 +331,7 @@
             });
     }
     function getRndDataId(){
-        fetch('/data/get-rnd-data-id')
+        fetch('http://localhost:8080/data/get-rnd-data-id')
             .then(response => response.text())
             .then(dataId => {
                 MdataId = dataId;
@@ -345,7 +345,7 @@
     }
 
     function getData(dataId){
-        fetch('/data/get-data?id=' + dataId)
+        fetch('http://localhost:8080/data/get-data?id=' + dataId)
             .then(response => response.text())
             .then(data2 => {
                 document.getElementById('dataArea').innerText = data2;
@@ -469,7 +469,7 @@
     }
     
     function getCategorys(){
-        fetch(`/data/category/all`)
+        fetch(`http://localhost:8080/data/category/all`)
             .then(response => {
                 console.log("response:", response);
                 return response.json();

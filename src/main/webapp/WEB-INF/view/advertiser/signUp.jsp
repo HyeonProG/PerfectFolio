@@ -79,7 +79,7 @@
 		const userId = document.getElementById('userId').value;
 		console.log('userId : ', userId);
 
-		fetch(`/advertiser/checkId?userId=` + userId)
+		fetch(`http://localhost:8080/advertiser/checkId?userId=` + userId)
 				.then(response => {
 					if (!response.ok) {
 						return response.json().then(data => {

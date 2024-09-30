@@ -72,7 +72,7 @@
 		function fetchPage(page, size, searchType ='', keyword='') {
 			
 			// 전체 리스트 조회 URL
-			let fetchUrl = `http:/admin/userList?page=` + page + `&size=` + size;
+			let fetchUrl = `http://localhost:8080/admin/userList?page=` + page + `&size=` + size;
 			
 			// 검색 시 URL
 			if(searchType) {

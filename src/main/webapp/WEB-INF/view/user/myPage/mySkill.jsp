@@ -342,7 +342,7 @@
     }
 
     function sendToServer() {
-        fetch('/analystic/create', {
+        fetch('http://localhost:8080/analystic/create', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -402,7 +402,7 @@
             return;
         }
 
-        fetch(`/data/mongo/category`)
+        fetch(`http://localhost:8080/data/mongo/category`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error("Network response was not ok");

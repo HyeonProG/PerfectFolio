@@ -75,7 +75,7 @@ logging:
 naver:
   client-id: 61124mn0Y_vuN0I9gWUm # 발급 받은 Client ID
   client-secret: r8vgxA9kTU # 발급 받은 Client Secret
-  redirect-uri: /user/naver #
+  redirect-uri: http://localhost:8080/user/naver #
   client-authentication-method: client_secret_post
 #            scope:
 #              - name
@@ -85,7 +85,7 @@ naver:
 
 kakao:
   client-id: 49a90f391b06f25728ec0d6f9f30ce86 # 발급 받은 REST API 키
-  redirect-uri: /user/kakao #
+  redirect-uri: http://localhost:8080/user/kakao #
   client-authentication-method: client_secret_post
 #            scope:
 #              - name
@@ -96,7 +96,7 @@ kakao:
 google:
   client-id: 259480084442-pdur9kmqe4ni54h5u7hrmv1a132ajtet.apps.googleusercontent.com # 발급 받은 Client ID
   client-secret: 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 # 발급 받은 Client Secret
-  redirect-uri: /user/google
+  redirect-uri: http://localhost:8080/user/google
   grant-type: authorization_code
   
 

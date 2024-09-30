@@ -365,7 +365,7 @@
         }
 
         // fetch 요청
-        fetch('/admin/count-all/week?startDate=' + startOfWeek + '&endDate=' + endOfWeek)
+        fetch('http://localhost:8080/admin/count-all/week?startDate=' + startOfWeek + '&endDate=' + endOfWeek)
             .then(response => response.json())
             .then(data => {
 				// console.log(data[0]);

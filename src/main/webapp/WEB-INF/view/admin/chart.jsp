@@ -153,7 +153,7 @@ toggleBtn.addEventListener('click', () => {
 
         /* 전체 사용자 수 */
         function getAllUsersCount() {
-            fetch('/admin/chartCountAllUsers')
+            fetch('http://localhost:8080/admin/chartCountAllUsers')
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('totalUsers').innerText = data;
@@ -167,7 +167,7 @@ toggleBtn.addEventListener('click', () => {
         
         /* 전체 구독자 수 */
         function countSubscribingUsers() {
-            fetch('/pay/countSubscribing')
+            fetch('http://localhost:8080/pay/countSubscribing')
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('subscribingUsers').innerText = data;
@@ -179,7 +179,7 @@ toggleBtn.addEventListener('click', () => {
         
         /* 전체 구독 해지자 수 */
         function countUnSubscribingUsers() {
-            fetch('/admin/chartCountUnsubscribe')
+            fetch('http://localhost:8080/admin/chartCountUnsubscribe')
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('unSubscribingUsers').innerText = data;
@@ -191,7 +191,7 @@ toggleBtn.addEventListener('click', () => {
         
         /* 전체 구독 결제 금액 */
         function chartSubscribingAmount() {
-            fetch('/admin/chartCountAllSubAmount')
+            fetch('http://localhost:8080/admin/chartCountAllSubAmount')
                 .then(response => response.json())
                 .then(data => {
                     const formattedAmount = formatKoreanWon(data);
@@ -204,7 +204,7 @@ toggleBtn.addEventListener('click', () => {
         
         /* 전체 구독 환불 금액 */
         function chartCountAllSubRefund() {
-            fetch('/admin/chartCountAllSubRefund')
+            fetch('http://localhost:8080/admin/chartCountAllSubRefund')
                 .then(response => response.json())
                 .then(data => {
                     const formattedAmount = formatKoreanWon(data);
@@ -220,7 +220,7 @@ toggleBtn.addEventListener('click', () => {
         /*** 광고 파트 ***/
         /* 전체 광고 본 횟수 */
         function countAllViewCount() {
-            fetch('/advertiser/view-count')
+            fetch('http://localhost:8080/advertiser/view-count')
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('viewCount').innerText = data;
@@ -232,7 +232,7 @@ toggleBtn.addEventListener('click', () => {
         
         /* 전체 광고 클릭 횟수 */
         function countAllClickCount() {
-            fetch('/advertiser/click-count')
+            fetch('http://localhost:8080/advertiser/click-count')
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('clickCount').innerText = data;
@@ -245,7 +245,7 @@ toggleBtn.addEventListener('click', () => {
         
         /* 전체 광고 결제 금액 */
         function countAllAdPayment() {
-            fetch('/advertiser/payment-count')
+            fetch('http://localhost:8080/advertiser/payment-count')
                 .then(response => response.json())
                 .then(data => {
                     const formattedAmount = formatKoreanWon(data);
@@ -258,7 +258,7 @@ toggleBtn.addEventListener('click', () => {
         
         /* 전체 광고 환불 금액 */
         function countAllAdRefundPayment() {
-            fetch('/advertiser/ad-refund-amount')
+            fetch('http://localhost:8080/advertiser/ad-refund-amount')
                 .then(response => response.json())
                 .then(data => {
                 const formattedAmount = formatKoreanWon(data);
@@ -279,7 +279,7 @@ toggleBtn.addEventListener('click', () => {
         
         /* 월별 사용자 수 */
         function getUserMonth() {
-            fetch('/admin/chartCountUserByMonth')
+            fetch('http://localhost:8080/admin/chartCountUserByMonth')
                 .then(response => response.json())
                 .then(data => {
                     const fullData = fillMissingMonths(data);
@@ -292,7 +292,7 @@ toggleBtn.addEventListener('click', () => {
         
         /* 남/여 사용자 수 */
         function getUserGender() {
-            fetch('/admin/chartCountUserByGender')
+            fetch('http://localhost:8080/admin/chartCountUserByGender')
                 .then(response => response.json())
                 .then(data => {
                     chartCountUserByGender(data);
@@ -304,7 +304,7 @@ toggleBtn.addEventListener('click', () => {
         
         /* 소셜 타입별 사용자 수 */
         function getUserSocialType() {
-			fetch('/admin/chartCountUserBySocialType')
+			fetch('http://localhost:8080/admin/chartCountUserBySocialType')
         		.then(response => response.json())
         		.then(data => {
         			chartCountUserBySocialType(data);
@@ -316,7 +316,7 @@ toggleBtn.addEventListener('click', () => {
         
         /* 연령별 사용자 수(네이버만) */
         function getUserAge() {
-			fetch('/admin/chartCountUserByAge')
+			fetch('http://localhost:8080/admin/chartCountUserByAge')
 				.then(response => response.json())
 				.then(data => {
 					chartCountUserByAge(data);
@@ -328,7 +328,7 @@ toggleBtn.addEventListener('click', () => {
         
         /* 탈퇴 사유 및 개수 조회 */
         function getWithdrawReason() {
-			fetch('/admin/chartCountWithdrawReason')
+			fetch('http://localhost:8080/admin/chartCountWithdrawReason')
 				.then(response => response.json())
 				.then(data => {
 					console.log(data);
@@ -850,7 +850,7 @@ toggleBtn.addEventListener('click', () => {
             }
 
             // fetch 요청
-            fetch('/admin/count-all/week?startDate=' + startOfWeek + '&endDate=' + endOfWeek)
+            fetch('http://localhost:8080/admin/count-all/week?startDate=' + startOfWeek + '&endDate=' + endOfWeek)
                 .then(response => response.json())
                 .then(data => {
     				// console.log(data[0]);

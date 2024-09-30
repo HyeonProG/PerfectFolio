@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // 페이지를 불러오는 함수
 function fetchPage(page, size) {
-    let fetchUrl = `/advertiser/active-list/data?page=` + page + `&size=` + size;
+    let fetchUrl = `http://localhost:8080/advertiser/active-list/data?page=` + page + `&size=` + size;
 
     fetch(fetchUrl)
         .then(response => response.json())

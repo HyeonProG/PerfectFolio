@@ -166,8 +166,8 @@ function basicPay(){
 
         tossPayments.requestBillingAuth("카드", {
             customerKey : customerKey, // 서버에서 전달받은 고객 키
-            successUrl: "/pay/success", // 성공 시 리디렉션 URL
-            failUrl: "/pay/fail" // 실패 시 리디렉션 URL
+            successUrl: "http://localhost:8080/pay/success", // 성공 시 리디렉션 URL
+            failUrl: "http://localhost:8080/pay/fail" // 실패 시 리디렉션 URL
         })
         .catch(function (error) {
 if (error.code === "USER_CANCEL") {
@@ -186,8 +186,8 @@ function premiumPay(){
 
         tossPayments.requestBillingAuth("카드", {
             customerKey : customerKey, // 서버에서 전달받은 고객 키
-            successUrl: "/pay/success2", // 성공 시 리디렉션 URL
-            failUrl: "/pay/fail" // 실패 시 리디렉션 URL
+            successUrl: "http://localhost:8080/pay/success2", // 성공 시 리디렉션 URL
+            failUrl: "http://localhost:8080/pay/fail" // 실패 시 리디렉션 URL
         })
         .catch(function (error) {
 if (error.code === "USER_CANCEL") {
@@ -220,7 +220,7 @@ if (error.code === "USER_CANCEL") {
 <!-- 광고 이미지 -->
 <script>
     function fetchRandomImage() {
-        fetch('http:/advertiser/random-image')
+        fetch('http://localhost:8080/advertiser/random-image')
             .then(response => response.json())
             .then(data => {
             	console.log("서버 응답 데이터: " + data);
@@ -242,7 +242,7 @@ if (error.code === "USER_CANCEL") {
     }
 
     function incrementClickCount(imageUrl) {
-        fetch('http:/advertiser/increment-click', {
+        fetch('http://localhost:8080/advertiser/increment-click', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -147,7 +147,7 @@
 
 <script>
 	function updateBalance() {
-	    fetch('/advertiser/get-balance')
+	    fetch('http://localhost:8080/advertiser/get-balance')
 	        .then(response => response.json())
 	        .then(data => {
 	            if (data.balance) {

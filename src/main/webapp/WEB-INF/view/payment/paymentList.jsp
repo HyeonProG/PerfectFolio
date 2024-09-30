@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
    function fetchPage(page, size, searchContents = '') {
       
    	// 전체 리스트 조회 시 URL
-   	let fetchUrl = `http:/pay/searchPaymentList?type=paymentList&page=` + page + `&size=` + size;
+   	let fetchUrl = `http://localhost:8080/pay/searchPaymentList?type=paymentList&page=` + page + `&size=` + size;
        
        // 검색 시 URL
        if (searchContents) {
@@ -298,7 +298,7 @@ function paymentKeyAlert1() {
 		    		cancelReason = result.value;
 					console.log('cancelReason : ',cancelReason);
 					
-					 fetch('/refund?paymentKey=' +paymentKey+ '&cancelReason=' +cancelReason +"&payPk=" +payPk, {
+					 fetch('http://localhost:8080/refund?paymentKey=' +paymentKey+ '&cancelReason=' +cancelReason +"&payPk=" +payPk, {
 					        method: 'POST',
 					        headers: {
 					          'Content-Type': 'application/json'

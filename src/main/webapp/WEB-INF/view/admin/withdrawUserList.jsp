@@ -60,7 +60,7 @@
 	function fetchPage(page, size, searchType='') {
 
 		// 전체 리스트 조회 URL
-		let fetchUrl = `/admin/withdrawUserInfo?page=` + page + `&size=` + size;
+		let fetchUrl = `http://localhost:8080/admin/withdrawUserInfo?page=` + page + `&size=` + size;
 
 		if(searchType) {
 			fetchUrl +=`&searchType=` + encodeURIComponent(searchType);

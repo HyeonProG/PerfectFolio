@@ -20,7 +20,7 @@
     });
 
     function  fetchRecommendations() {
-        fetch('/com/getSimilarityList')
+        fetch('http://localhost:8080/com/getSimilarityList')
             .then(response => handleResponse(response))
             .then(data => renderRecommendations(data))
             .catch(error => {

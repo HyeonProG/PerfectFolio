@@ -71,7 +71,7 @@
         const email = document.getElementById('userEmail').value;
         console.log('Email : ' + email);
 
-        fetch('/send-mail/findPasswordByEmail?email=' + email)
+        fetch('http://localhost:8080/send-mail/findPasswordByEmail?email=' + email)
             .then(response => {
                 if (!response.ok) {
                     return response.json().then(data => {

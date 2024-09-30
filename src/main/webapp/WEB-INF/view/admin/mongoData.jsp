@@ -175,7 +175,7 @@
     console.log('userId', userId);
 
     function sendToServer() {
-        fetch('/analystic/create', {
+        fetch('http://localhost:8080/analystic/create', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -414,7 +414,7 @@
     });
 
     function getCategorys() {
-        fetch(`/data/mongo/category`)
+        fetch(`http://localhost:8080/data/mongo/category`)
             .then(response => {
                 console.log("response:", response);
                 return response.json();

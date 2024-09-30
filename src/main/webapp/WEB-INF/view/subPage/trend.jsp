@@ -105,7 +105,7 @@
     }
 
     function getTrend(startDate, endDate) {
-        fetch('/analystic/trendskills?startDate='+startDate+'&endDate='+endDate)
+        fetch('http://localhost:8080/analystic/trendskills?startDate='+startDate+'&endDate='+endDate)
             .then(response => response.json())
             .then(data => {
                 console.log(data);

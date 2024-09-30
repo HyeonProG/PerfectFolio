@@ -97,7 +97,7 @@
 
         // 서버에서 리스트 데이터를 받아오는 함수
         function fetchTagList() {
-            fetch('http:/company/tagList')  // 컨트롤러에서 제공하는 리스트 API 경로
+            fetch('http://localhost:8080/company/tagList')  // 컨트롤러에서 제공하는 리스트 API 경로
                 .then(response => response.json())
                 .then(data => {
                     availableTags = data; // 서버에서 받아온 태그 리스트 저장
@@ -237,7 +237,7 @@
                 console.log("전송된 데이터:", jsonData); // 콘솔에 JSON 출력
 
                 // fetch를 사용하여 서버로 데이터 전송 (POST 요청)
-                fetch('http:/company/search', {
+                fetch('http://localhost:8080/company/search', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -340,7 +340,7 @@
     function sendFavoriteToServer(userId, isFavorite) {
         const companyId = document.getElementById("companyId").value;
 
-        fetch('http:/company/favorite', {
+        fetch('http://localhost:8080/company/favorite', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -366,7 +366,7 @@
     function deleteFavorite(userId) {
         const companyId = document.getElementById("companyId").value;
 
-        fetch('http:/company/favorite/delete', {
+        fetch('http://localhost:8080/company/favorite/delete', {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -386,7 +386,7 @@
     function sendProposal(userId) {
         // 서버로 입사제안서 전송 (예시로 POST 요청 사용)
         if(confirm("정말 입사제안서를 보내시겠습니까? 수량이 소모됩니다.")) {
-            fetch('http:/company/proposal', {
+            fetch('http://localhost:8080/company/proposal', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

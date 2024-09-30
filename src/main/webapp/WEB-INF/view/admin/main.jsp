@@ -109,7 +109,7 @@
 
 		/* 전체 사용자 수 */
 		function getAllUsersCount() {
-		    fetch('/admin/chartCountAllUsers')
+		    fetch('http://localhost:8080/admin/chartCountAllUsers')
 		        .then(response => response.json())
 		        .then(data => {
 		            document.getElementById('totalUsers').innerText = data;
@@ -121,7 +121,7 @@
 		
 		 /* 전체 구독자 수 */
         function countSubscribingUsers() {
-            fetch('/pay/countSubscribing')
+            fetch('http://localhost:8080/pay/countSubscribing')
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('subscribingUsers').innerText = data;
@@ -133,7 +133,7 @@
 		 
         /* 전체 구독 결제 금액 */
         function chartSubscribingAmount() {
-            fetch('/admin/chartCountAllSubAmount')
+            fetch('http://localhost:8080/admin/chartCountAllSubAmount')
                 .then(response => response.json())
                 .then(data => {
                     const formattedAmount = formatKoreanWon(data);
@@ -146,7 +146,7 @@
         
         /* 전체 구독 환불 금액 */
         function chartCountAllSubRefund() {
-            fetch('/admin/chartCountAllSubRefund')
+            fetch('http://localhost:8080/admin/chartCountAllSubRefund')
                 .then(response => response.json())
                 .then(data => {
                 	const formattedAmount = formatKoreanWon(data);
@@ -159,7 +159,7 @@
         
         /* 전체 광고 결제 금액 */
         function countAllAdPayment() {
-            fetch('/advertiser/payment-count')
+            fetch('http://localhost:8080/advertiser/payment-count')
                 .then(response => response.json())
                 .then(data => {
                     const formattedAmount = formatKoreanWon(data);
@@ -172,7 +172,7 @@
         
         /* 전체 광고 환불 금액 */
         function countAllAdRefundPayment() {
-            fetch('/advertiser/ad-refund-amount')
+            fetch('http://localhost:8080/advertiser/ad-refund-amount')
                 .then(response => response.json())
                 .then(data => {
                     const formattedAmount = formatKoreanWon(data);
@@ -191,7 +191,7 @@
         
         /* 월별 사용자 수 */
         function getUserMonth() {
-            fetch('/admin/chartCountUserByMonth')
+            fetch('http://localhost:8080/admin/chartCountUserByMonth')
                 .then(response => response.json())
                 .then(data => {
                     const fullData = fillMissingMonths(data);
@@ -204,7 +204,7 @@
         
         /* 탈퇴 사유 및 개수 조회 */
         function getWithdrawReason() {
-			fetch('/admin/chartCountWithdrawReason')
+			fetch('http://localhost:8080/admin/chartCountWithdrawReason')
 				.then(response => response.json())
 				.then(data => {
 					console.log(data);
@@ -324,7 +324,7 @@
 		
 		// 공지사항을 불러오는 함수
 		function fetchNotices() {
-		    fetch('http:perfecfolio.jinnymo.com/notice/list?page=1&size=5') // 첫 페이지에서 7개 항목 요청
+		    fetch('http://localhost:8080/notice/list?page=1&size=5') // 첫 페이지에서 7개 항목 요청
 		        .then(response => response.json())
 		        .then(data => {
 		            renderNoticeList(data.noticeList); // 공지사항 목록 렌더링

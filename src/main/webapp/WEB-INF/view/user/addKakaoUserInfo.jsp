@@ -80,7 +80,7 @@ $("#emailCode").on('click', function () {
     const email = document.getElementById('userEmail').value;
     console.log('Email : ' + email);
 
-    fetch('/send-mail/email?email=' + email)
+    fetch('http://localhost:8080/send-mail/email?email=' + email)
         .then(response => {
             if (!response.ok) {
 				return response.json().then(data => {
@@ -111,7 +111,7 @@ $("#checkId").on('click', function() {
 	const userId = document.getElementById('userId').value;
 	console.log('userId : ', userId);
 
-	fetch(`/user/checkId?userId=` + userId)
+	fetch(`http://localhost:8080/user/checkId?userId=` + userId)
 			.then(response => {
 				if (!response.ok) {
 					return response.json().then(data => {
