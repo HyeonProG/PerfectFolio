@@ -41,7 +41,7 @@
 				</tbody>
 			</table>
 		</c:if>
-		<c:if test="${empty pendingApplications}">
+		<c:if test="${empty applicationsList}">
 			<p>승인 대기중인 광고 신청이 없습니다.</p>
 		</c:if>
 	</div>
